@@ -33,26 +33,20 @@ public class Idle : State
 
     public override void HandleInput()
     {
-        if (playerControl.playerInput.Player.Left.IsPressed())
+        bool leftPressed = playerControl.playerInput.Player.Left.IsPressed();
+        bool rightPressed = playerControl.playerInput.Player.Right.IsPressed();
+        bool upPressed = playerControl.playerInput.Player.Up.IsPressed();
+        bool downPressed = playerControl.playerInput.Player.Down.IsPressed();
+
+        // Check for conflicting inputs (left+right or up+down)
+        bool horizontalConflict = leftPressed && rightPressed;
+        bool verticalConflict = upPressed && downPressed;
+
+        // Only set isMoving to true if there's no conflict and at least one direction is pressed
+        if (!horizontalConflict && !verticalConflict && (leftPressed || rightPressed || upPressed || downPressed))
         {
             isMoving = true;
         }
-
-        else if (playerControl.playerInput.Player.Right.IsPressed())
-        {
-            isMoving = true;
-        }
-
-        else if (playerControl.playerInput.Player.Up.IsPressed())
-        {
-            isMoving = true;
-        }
-
-        else if (playerControl.playerInput.Player.Down.IsPressed())
-        {
-            isMoving = true;
-        }
-
         else
         {
             isMoving = false;
