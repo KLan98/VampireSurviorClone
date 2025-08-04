@@ -27,7 +27,7 @@ public class Idle : State
 
         else
         {
-            //Debug.Log(Const.PLAYER_MOVING_PARAMETER);
+            return;
         }
     }
 
