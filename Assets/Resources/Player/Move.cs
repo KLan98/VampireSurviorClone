@@ -7,7 +7,7 @@ public class Move : State
     private bool isIdling;
     private Vector2 forceDirection;
     private Vector2 inputDirection;
-    private float moveSpeed = 5f;
+    private float moveSpeed = 4f;
 
     public Move(StateMachine stateMachine, PlayerControl playerControl) : base(stateMachine, playerControl)
     {
