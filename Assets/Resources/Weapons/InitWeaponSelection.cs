@@ -6,10 +6,10 @@ using UnityEngine.UI;
 /// <summary>
 /// Choose weapons from a pool and assign it randomly
 /// </summary>
-public class InitWeaponSelection : MonoBehaviour
+public class WeaponSelection : MonoBehaviour
 {
-    [SerializeField] private SlotClass[] weaponDB;
-    private GameObject[] slotArray;
+    [SerializeField] public SlotClass[] weaponDB;
+    public GameObject[] slotArray;
     [SerializeField] private GameObject slotGameObject;
 
     [Header("Components")]
@@ -53,30 +53,30 @@ public class InitWeaponSelection : MonoBehaviour
         // declare decrementing list
         for (int i = shuffledPool.Length - 1; i > 0 ; i--)
         {
-            Debug.Log($"Iteration #{i}");
+            //Debug.Log($"Iteration #{i}");
             // j is the chosen index, which is always decrementing
             int j = Random.Range(0, i + 1);
-            Debug.Log("Randomized j " + j);
+            //Debug.Log("Randomized j " + j);
 
             // perform swap between i and j 
             SlotClass temp = shuffledPool[i];
-            Debug.Log($"temp {temp.GetItem().ItemName}");
+            //Debug.Log($"temp {temp.GetItem().ItemName}");
             shuffledPool[i] = shuffledPool[j];
-            Debug.Log($"shuffledPool[i] {shuffledPool[i].GetItem().ItemName} with i = {i}");
+            //Debug.Log($"shuffledPool[i] {shuffledPool[i].GetItem().ItemName} with i = {i}");
             shuffledPool[j] = temp;
-            Debug.Log($"shuffledPool[j] {shuffledPool[j].GetItem().ItemName} with j = {j}");
+            //Debug.Log($"shuffledPool[j] {shuffledPool[j].GetItem().ItemName} with j = {j}");
         }
 
-        for (int i = 0; i < shuffledPool.Length; i++)
-        {
-            Debug.Log($"ShuffledPool at index {i} {shuffledPool[i].GetItem().ItemName}");
-        }
+        //for (int i = 0; i < shuffledPool.Length; i++)
+        //{
+        //    Debug.Log($"ShuffledPool at index {i} {shuffledPool[i].GetItem().ItemName}");
+        //}
 
         for (int i = 0; i < weaponDB.Length; i++)
         {
             // randomly assign weaponDB
             weaponDB[i] = shuffledPool[i];
-            Debug.Log($"WeaponDB at index {i} {weaponDB[i].GetItem().ItemName}");
+            //Debug.Log($"WeaponDB at index {i} {weaponDB[i].GetItem().ItemName}");
         }
     }
 

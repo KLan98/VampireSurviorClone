@@ -1,26 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 /// <summary>
-/// In-game inventory manager
+/// In-game inventory manager, do not let other class call this component
 /// </summary>
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private SlotClass[] itemDB;
     [SerializeField] public SlotClass itemToAdd;
     [SerializeField] private SlotClass itemToRemove;
+
+
+    [Header("Game objects")]
     private GameObject[] slotArray;
-    [SerializeField] private GameObject slotGameObject;
+    [SerializeField] private GameObject slotGameObject; // slot game object of pause menu 
+    [SerializeField] private GameObject weaponSelectionGameObject;
+
+    [Header("Components")]
+    [SerializeField] private WeaponSelection weaponSelection;
+    [SerializeField] private UIManager UIManager;
 
     private void Awake()
     {
+        // Load components
+        LoadUIManager();
+
+        InitUI();
+
         // init components/ game objects/ fields
         LoadSlotsChildren();
+        InitItemDB();
 
         // data processing
-        ArrangeItemToSlot();
+        //ArrangeItemToSlot();
     }
 
     /// <summary>
@@ -35,16 +51,19 @@ public class InventoryManager : MonoBehaviour
 
         for (int i = 0; i < itemDB.Length; i++)
         {
-            if (itemDB[i].GetItem() != null)
+            if (itemDB[i] == null)
             {
-                Debug.Log($"This slot at index {i} is already has an item {itemDB[i].GetItem().ItemName}");
+                Debug.Log(itemDB[i]);
+
+                itemDB[i] = itemToAdd;
+                Debug.Log($"Added item {itemToAdd.GetItem().ItemName} to index {i}");
+
+                return;
             }
 
             else
             {
-                Debug.Log($"Added item {itemToAdd.GetItem().ItemName} to index {i}");
-                itemDB[i] = itemToAdd;
-                return;
+                Debug.Log($"ItemDB at index {i} is not null, itemDB[i] = {itemDB[i]}");
             }
         }
     }
@@ -52,12 +71,22 @@ public class InventoryManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.OnInitWeaponChose += AddItem;
-
+        EventManager.OnAssignItemToAdd += AssignItemToAdd;
+        EventManager.OnWeaponSelectionUIActive += LoadWeaponSelection;
+        EventManager.OnRefreshPauseMenuUI += ArrangeItemToSlot;
     }
 
     private void OnDisable()
     {
         EventManager.OnInitWeaponChose -= AddItem;
+        EventManager.OnAssignItemToAdd -= AssignItemToAdd;
+        EventManager.OnWeaponSelectionUIActive -= LoadWeaponSelection;
+        EventManager.OnRefreshPauseMenuUI -= ArrangeItemToSlot;
+    }
+
+    private void AssignItemToAdd(int index)
+    {
+        itemToAdd = weaponSelection.weaponDB[index];
     }
 
     /// <summary>
@@ -78,6 +107,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+
     /// <summary>
     /// Display the weapons from itemDB to UI
     /// </summary>
@@ -92,13 +122,47 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                // Optionally clear the slot if there is no item
                 if (slotArray[i] != null)
                 {
-                    slotArray[i].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = null;
+                    //slotArray[i].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = "C:\Users\Lan Pham\Playground\UnityGame\VampireSurvivor\VampireSurvivorClone\Assets\Resources\UI\Sprites\Panel.asset";
                     slotArray[i].gameObject.GetComponent<Slot>().IsSlotOccupied = false;
                 }
             }
+        }
+    }
+
+    private void LoadWeaponSelection()
+    {
+        //Debug.Log("Load weapon selection component");
+        if (weaponSelectionGameObject.activeInHierarchy)
+        {
+            weaponSelection = GameObject.Find("WeaponSelection").GetComponent<WeaponSelection>();
+        }
+
+        else
+        {
+            return;
+        }
+    }
+
+    private void LoadUIManager()
+    {
+        UIManager = this.gameObject.transform.parent.GetComponentInChildren<UIManager>();
+    }
+
+    private void InitUI()
+    {
+        weaponSelectionGameObject = UIManager.weaponSelectionUI;
+        slotGameObject = UIManager.pauseMenuUI_slotGameObject;
+    }
+
+    private void InitItemDB()
+    {
+        itemDB = new SlotClass[3];
+
+        for (int i = 0; i < itemDB.Length; i++)
+        {
+            itemDB[i] = null;
         }
     }
 }
