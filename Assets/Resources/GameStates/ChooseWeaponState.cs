@@ -20,6 +20,8 @@ public class ChooseWeaponState : GameState
     public override void Exit()
     {
         base.Exit();
+        Time.timeScale = 1f;
+
         UIManager.Instance.weaponSelectionUI.SetActive(false);
 
         // Unsubscribe to prevent memory leaks or multiple triggers
@@ -29,6 +31,7 @@ public class ChooseWeaponState : GameState
     public override void StateBehaviorUpdate()
     {
         // Optional: extra logic while selecting
+        Time.timeScale = 0f;
     }
 
     private void HandleWeaponSelected(bool weaponSelected)
