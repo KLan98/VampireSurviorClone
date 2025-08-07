@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyState 
 {
-    private EnemyStateMachine stateMachine;
-    private EnemyController enemyController;
+    protected EnemyStateMachine stateMachine;
+    protected EnemyController enemyController;
 
     public EnemyState (EnemyStateMachine stateMachine, EnemyController enemyController)
     {
@@ -15,12 +15,12 @@ public class EnemyState
 
     public virtual void Enter()
     {
-        Debug.Log($"Enemy enters state {this}");
+        //Debug.Log($"Enemy enters state {this}");
     }
 
     public virtual void Exit()
     {
-        Debug.Log($"Enemy exits state = {this}");
+        //Debug.Log($"Enemy exits state = {this}");
     }
 
     public virtual void LogicUpdate()
@@ -28,7 +28,12 @@ public class EnemyState
 
     }
 
-    public virtual void HandlePhysics()
+    public virtual void PhysicsUpdate()
+    {
+
+    }
+
+    public virtual void HandleInput()
     {
 
     }

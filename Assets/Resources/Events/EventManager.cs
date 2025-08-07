@@ -9,7 +9,6 @@ public class EventManager : MonoBehaviour
     public static event Action<int> OnAssignItemToAdd;
     public static event Action<bool> OnWeaponSelected;
     public static event Action OnWeaponSelectionUIActive;
-    public static event Action OnEscapePressed;
     public static event Action OnRefreshPauseMenuUI;
 
     public static void CallAddItem()
@@ -34,11 +33,6 @@ public class EventManager : MonoBehaviour
     public static void WeaponSelectionUIActive()
     {
         OnWeaponSelectionUIActive?.Invoke();
-    }
-
-    public static void PauseGame()
-    {
-        OnEscapePressed?.Invoke();
     }
 
     public static void RefreshPauseMenuUI()

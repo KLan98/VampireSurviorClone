@@ -2,15 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+/// <summary>
+/// This script should no be attached to any game object
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class EnemySpawner<T> : MonoBehaviour where T : Enemy
 {
-    [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private int poolSize = 500;
-    [SerializeField] private int enemiesSpawned = 0;
-    [SerializeField] private float spawnInterval = 1.0f;
+    protected virtual int PoolSize() => default;
+    protected virtual T EnemyPrefab() => default;
+    public Queue<T> enemyQueue = new Queue<T>();
 
-    //private Vector2 GetSpawnPosition()
+    // return the spawned game object to the pool
+    public void ReturnToPool(T enemy)
+    {
+        enemyQueue.Enqueue(enemy);
+        enemy.gameObject.SetActive(false);
+    }
+
+    public T SpawnEnemy(Vector2 spawnPosition)
+    {
+        // Enqueue the pool whenever the queue is empty
+        if (enemyQueue.Count == 0)
+        {
+            PoolEnqueue();
+        }
+
+        T spawnedEnemy = enemyQueue.Dequeue();
+        spawnedEnemy.gameObject.SetActive(true);
+        spawnedEnemy.InitPosition(spawnPosition);
+        return spawnedEnemy;
+    }
+
+    //private void Update()
     //{
-    //    return new Vector2(Ran)
+    //    spawnTimer += Time.deltaTime;
+    //    if (spawnTimer >= spawnInterval)
+    //    {
+    //        //StartCoroutine(TriggerSpawnEnemy());
+    //        //SpawnEnemy()
+    //        spawnTimer = 0;
+    //    }
     //}
+
+    protected void PoolEnqueue()
+    {
+        for (int i = 0; i < PoolSize(); i++)
+        {
+            T enemyPrefab = Instantiate(EnemyPrefab());
+            enemyQueue.Enqueue(enemyPrefab);
+            enemyPrefab.transform.SetParent(this.transform);
+            enemyPrefab.gameObject.SetActive(false);
+        }
+    }
 }

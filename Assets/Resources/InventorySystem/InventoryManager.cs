@@ -53,10 +53,10 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemDB[i] == null)
             {
-                Debug.Log(itemDB[i]);
+                //Debug.Log(itemDB[i]);
 
                 itemDB[i] = itemToAdd;
-                Debug.Log($"Added item {itemToAdd.GetItem().ItemName} to index {i}");
+                //Debug.Log($"Added item {itemToAdd.GetItem().ItemName} to index {i}");
 
                 return;
             }

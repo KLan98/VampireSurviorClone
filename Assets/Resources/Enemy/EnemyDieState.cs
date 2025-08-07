@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDieState : MonoBehaviour
+public class EnemyDieState : EnemyState
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyDieState(EnemyStateMachine enemyStateMachine, EnemyController enemyController) : base(enemyStateMachine, enemyController)
+    {
+
+    }
+
+    public override void LogicUpdate()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void PhysicsUpdate()
     {
-        
+        // destroy this gameobject and return it to enemy pool 
+    }
+
+    private void PlayDeathAnimation()
+    {
+
     }
 }
