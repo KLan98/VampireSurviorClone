@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 /// <summary>
 /// In-game inventory manager, do not let other class call this component
@@ -34,9 +33,6 @@ public class InventoryManager : MonoBehaviour
         // init components/ game objects/ fields
         LoadSlotsChildren();
         InitItemDB();
-
-        // data processing
-        //ArrangeItemToSlot();
     }
 
     /// <summary>
@@ -124,7 +120,6 @@ public class InventoryManager : MonoBehaviour
             {
                 if (slotArray[i] != null)
                 {
-                    //slotArray[i].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = "C:\Users\Lan Pham\Playground\UnityGame\VampireSurvivor\VampireSurvivorClone\Assets\Resources\UI\Sprites\Panel.asset";
                     slotArray[i].gameObject.GetComponent<Slot>().IsSlotOccupied = false;
                 }
             }

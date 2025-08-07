@@ -33,17 +33,6 @@ public class EnemySpawner<T> : MonoBehaviour where T : Enemy
         return spawnedEnemy;
     }
 
-    //private void Update()
-    //{
-    //    spawnTimer += Time.deltaTime;
-    //    if (spawnTimer >= spawnInterval)
-    //    {
-    //        //StartCoroutine(TriggerSpawnEnemy());
-    //        //SpawnEnemy()
-    //        spawnTimer = 0;
-    //    }
-    //}
-
     protected void PoolEnqueue()
     {
         for (int i = 0; i < PoolSize(); i++)
