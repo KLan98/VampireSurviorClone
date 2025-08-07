@@ -20,7 +20,7 @@ public class State
 
     public virtual void Enter()
     {
-        Debug.Log($"Enter {this} state");
+        //Debug.Log($"Enter {this} state");
     }
 
     public virtual void PhysicsUpdate()

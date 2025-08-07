@@ -72,6 +72,6 @@ public class Move : State
     public override void PhysicsUpdate()
     {
         playerControl.rb.velocity = forceDirection * moveSpeed;
-        Debug.Log(playerControl.rb.velocity.magnitude);
+        //Debug.Log(playerControl.rb.velocity.magnitude);
     }
 }

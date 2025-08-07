@@ -11,9 +11,9 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     private PlayerInputActions playerInputAction;
-    private InventoryManager inventoryManager;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject chooseWeaponMenu;
+    private WeaponSelection weaponSelectionComponent;
 
     private bool pauseMenuActive;
 
@@ -24,7 +24,8 @@ public class PlayerInput : MonoBehaviour
 
         pauseMenuActive = false;
 
-        LoadInventoryManager();
+        // load components 
+        LoadWeaponSelectionComponent();
     }
 
     private void OnEnable()
@@ -42,7 +43,7 @@ public class PlayerInput : MonoBehaviour
 
     private void HandleLeftClick(InputAction.CallbackContext context)
     {
-        if (chooseWeaponMenu.gameObject.activeInHierarchy != true)
+        if (chooseWeaponMenu.gameObject.activeInHierarchy == false)
         {
             return;
         }
@@ -62,13 +63,21 @@ public class PlayerInput : MonoBehaviour
             foreach (var result in results)
             {
                 Slot chosenWeapon = result.gameObject.GetComponent<Slot>();
-                if (chosenWeapon != null /*&& chosenWeapon.IsSlotOccupied*/)
+                if (chosenWeapon != null && chosenWeapon.IsSlotOccupied && chosenWeapon.GetComponentInChildren<WeaponImage>())
                 {
                     Debug.Log($"Player selected slot {chosenWeapon.name}");
-                    
-                    // TODO: find a way to assign itemToAdd
 
-                    EventManager.CallAddItem();          
+                    int selectionIndex = Array.IndexOf(weaponSelectionComponent.slotArray, chosenWeapon.gameObject);
+
+                    //Debug.Log(selectionIndex);
+
+                    EventManager.AssignItemToAdd(selectionIndex);
+
+                    EventManager.CallAddItem();
+
+                    EventManager.RefreshPauseMenuUI();
+
+                    EventManager.WeaponSelected(true);
                 }
             }
         }
@@ -76,15 +85,29 @@ public class PlayerInput : MonoBehaviour
 
     private void HandlePauseMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("Escape pressed");
-        pauseMenuActive = !pauseMenuActive;
-        pauseMenu.SetActive(pauseMenuActive);
+        //Debug.Log("Escape pressed");
 
-        // TODO: add pause game (enemies, player and all timer stopped)
+        // Don't allow switching state when the chooseWeaponMenu is active
+        if (chooseWeaponMenu.gameObject.activeInHierarchy == true)
+        {
+            return;
+        }
+
+        if (pauseMenuActive == false)
+        {
+            GameStateManager.Instance.ChangeState(new GamePauseState());
+            pauseMenuActive = !pauseMenuActive;
+        }
+
+        else
+        {
+            GameStateManager.Instance.ChangeState(new CombatState());
+            pauseMenuActive = !pauseMenuActive;
+        }
     }
 
-    private void LoadInventoryManager()
+    private void LoadWeaponSelectionComponent()
     {
-        inventoryManager = gameObject.GetComponent<InventoryManager>();
+        weaponSelectionComponent = chooseWeaponMenu.GetComponent<WeaponSelection>();
     }
 }
