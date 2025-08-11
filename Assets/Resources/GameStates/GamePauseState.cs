@@ -14,6 +14,8 @@ public class GamePauseState : GameState
     public override void Exit()
     {
         base.Exit();
+        // exit pause
+        Time.timeScale = 1f;
         UIManager.Instance.pauseMenuUI.SetActive(false);
 
         // Unsubscribe to prevent memory leaks or multiple triggers
@@ -21,7 +23,7 @@ public class GamePauseState : GameState
 
     public override void StateBehaviorUpdate()
     {
-        // Optional: extra logic while selecting
-        //EventManager.PauseGame();
+        // pause game
+        Time.timeScale = 0f;
     }
 }

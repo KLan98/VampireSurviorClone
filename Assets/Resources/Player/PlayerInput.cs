@@ -25,7 +25,7 @@ public class PlayerInput : MonoBehaviour
         pauseMenuActive = false;
 
         // load components 
-        LoadInitWeaponSelectionComponent();
+        LoadWeaponSelectionComponent();
     }
 
     private void OnEnable()
@@ -106,7 +106,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void LoadInitWeaponSelectionComponent()
+    private void LoadWeaponSelectionComponent()
     {
         weaponSelectionComponent = chooseWeaponMenu.GetComponent<WeaponSelection>();
     }
