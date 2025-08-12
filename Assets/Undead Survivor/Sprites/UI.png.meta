@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: d71a3dc7aa20fad4f9a99fc76a9254ba
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238068
+  packageName: Undead Survivor Assets Pack
+  packageVersion: 1.3
+  assetPath: Assets/Undead Survivor/Sprites/UI.png
+  uploadId: 633846
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +27,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +71,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +84,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +97,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +110,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +123,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,13 +136,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Select 0
+      name: UI_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,20 +151,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deb89abc72bdf09499fecaf5f6ac8224
-      internalID: -181907988
+      spriteID: 2e4160e3a0ded8844a5fbc6237c9269f
+      internalID: 407305335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 1
+      name: UI_1
       rect:
         serializedVersion: 2
         x: 19
@@ -158,20 +172,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61ebaaa032a4955478de35007617e658
-      internalID: -1786786079
+      spriteID: 50ac3dbad258fb84f86d9c6d2a9edbc9
+      internalID: -2028458763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 2
+      name: UI_2
       rect:
         serializedVersion: 2
         x: 38
@@ -179,20 +193,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b3f965e17db26b4daa76dcaeab79d96
-      internalID: -344242777
+      spriteID: 0a6f190a8a0fd4c488e128fbd0bf2633
+      internalID: -1866350099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title 0
+      name: UI_3
       rect:
         serializedVersion: 2
         x: 57
@@ -200,20 +214,20 @@ TextureImporter:
         width: 63
         height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1de59dad0847fe4f992b6ba679977bb
-      internalID: 1315674547
+      spriteID: dd4fdfff9ddd2b449931d7068162ad5f
+      internalID: 1107050941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 3
+      name: UI_4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,20 +235,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d413ed9c564ba849bc3572adcc00ab6
-      internalID: -205726582
+      spriteID: f30b39fc1d45e044bb707ed4abe6715c
+      internalID: 1040701815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 4
+      name: UI_5
       rect:
         serializedVersion: 2
         x: 19
@@ -242,20 +256,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f910766c2d89e54e974ff13f165def4
-      internalID: 563336626
+      spriteID: 1ef1923e545d3984295bfa4af9504176
+      internalID: -260863283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 5
+      name: UI_6
       rect:
         serializedVersion: 2
         x: 38
@@ -263,20 +277,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e729e84681d8ccd4abb30f7e834e6a24
-      internalID: -762074860
+      spriteID: 8435ebacf13e1864796f036d5e992055
+      internalID: -1544132279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title 1
+      name: UI_7
       rect:
         serializedVersion: 2
         x: 57
@@ -284,20 +298,20 @@ TextureImporter:
         width: 67
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7472814ba5ea4f488c421dcd1060b3a
-      internalID: -1799623379
+      spriteID: 2f9c1d70ff36e9545ab5a3b63438e835
+      internalID: 702569543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 6
+      name: UI_8
       rect:
         serializedVersion: 2
         x: 0
@@ -305,20 +319,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca40eafa1097bf944a7d2d4cd5206510
-      internalID: -201829820
+      spriteID: 2fc0f21dc3cc71d4cb086d2f4746ee59
+      internalID: -798736594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 7
+      name: UI_9
       rect:
         serializedVersion: 2
         x: 19
@@ -326,20 +340,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b7aa5e1a47f41645a0a2ced5eae5342
-      internalID: -966295699
+      spriteID: f2dfd8d65dcb6e94e8815ce8df6eb8fc
+      internalID: 607152269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 8
+      name: UI_10
       rect:
         serializedVersion: 2
         x: 38
@@ -347,20 +361,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b86dab0d389801f4e9d13735b9ab2096
-      internalID: 927338625
+      spriteID: 8ebc7f6687ecd704cbf8ed9c2424141d
+      internalID: -1245400418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title 2
+      name: UI_11
       rect:
         serializedVersion: 2
         x: 57
@@ -368,20 +382,20 @@ TextureImporter:
         width: 42
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bb35ec82d6cb004eaed04bee3070629
-      internalID: -77559378
+      spriteID: 3e350690286405443b7524832e7eb759
+      internalID: -1436851032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Select 9
+      name: UI_12
       rect:
         serializedVersion: 2
         x: 0
@@ -389,20 +403,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60a17670ae93403429303639a00743e4
-      internalID: -1002307068
+      spriteID: b4f6486699fc0cd4f8fe3c35d678a4b4
+      internalID: 250363632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Panel
+      name: UI_13
       rect:
         serializedVersion: 2
         x: 19
@@ -410,20 +424,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 3, z: 6, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14318eb06c6b80b4bbd4417f8bbf90ed
-      internalID: -8390244
+      spriteID: 1910a0e14ca36784383d2624c616a0b0
+      internalID: -338810910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back 0
+      name: UI_14
       rect:
         serializedVersion: 2
         x: 38
@@ -431,20 +445,20 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 3, z: 2, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fb6094b044ae5c4dbf4bfc147ea0bc7
-      internalID: -1010605625
+      spriteID: e9ca287a4eb2eab4b85d5241b8d9fc9c
+      internalID: -1011283146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box 1
+      name: UI_15
       rect:
         serializedVersion: 2
         x: 57
@@ -452,41 +466,41 @@ TextureImporter:
         width: 33
         height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 922a7f973ab62d9459aed579283e094b
-      internalID: 1777749549
+      spriteID: a9dad84af7f9f634aa36e51345faaa17
+      internalID: 1743701075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box 0
+      name: UI_16
       rect:
         serializedVersion: 2
-        x: 91
+        x: 98
         y: 49
-        width: 33
-        height: 26
+        width: 26
+        height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b27103f1ea7af49b864cebcb3db659
-      internalID: -155058199
+      spriteID: a8ce4cd1c4fd5fc4bb4dbff3f1eecd8d
+      internalID: 1937049206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icon 0
+      name: UI_17
       rect:
         serializedVersion: 2
         x: 0
@@ -494,20 +508,20 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c272d534fa4b527498e7eb799ea25438
-      internalID: 891942287
+      spriteID: 5692a142a7fd7be489283042d8f95492
+      internalID: 179955286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back 1
+      name: UI_18
       rect:
         serializedVersion: 2
         x: 9
@@ -515,62 +529,62 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 2, z: 2, w: 2}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72581673b5e68074fbed221cd3afb6f1
-      internalID: -1061235666
+      spriteID: 3631d7aee1e1c324798bda5eb5d1b20c
+      internalID: -1980220943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front 1
+      name: UI_19
       rect:
         serializedVersion: 2
-        x: 19
-        y: 37
-        width: 8
-        height: 8
+        x: 20
+        y: 38
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 1, z: 1, w: 1}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9e2d0bfe3614724696f555378ec08ca
-      internalID: -1722126508
+      spriteID: 67913db847518f9449c4377d039efe53
+      internalID: -881106514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front 0
+      name: UI_20
       rect:
         serializedVersion: 2
-        x: 38
-        y: 27
-        width: 18
-        height: 18
+        x: 39
+        y: 28
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 1, z: 1, w: 1}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3121966e9e6aac49a7d0ade332c9619
-      internalID: 1312383074
+      spriteID: 1646cddda26dc104fa9c25b4d77fc85f
+      internalID: 1414568281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Joystick 0
+      name: UI_21
       rect:
         serializedVersion: 2
         x: 57
@@ -578,35 +592,35 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cc157d4d01fc5542b980637ba496270
-      internalID: 1328899968
+      spriteID: 0adee1ac1dc2f3c4fab5c732f277da6d
+      internalID: -1532736571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Joystick 1
+      name: UI_22
       rect:
         serializedVersion: 2
-        x: 106
-        y: 0
-        width: 48
-        height: 48
+        x: 112
+        y: 6
+        width: 36
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87864a3a3386b3a47a2098530d0dbff3
-      internalID: -1798395208
+      spriteID: 0fcab8993ac0dc344b722fee8e28b1db
+      internalID: -294646513
       vertices: []
       indices: 
       edges: []
@@ -622,39 +636,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Back 0: -1010605625
-      Back 1: -1061235666
-      Box 0: -155058199
-      Box 1: 1777749549
-      Front 0: 1312383074
-      Front 1: -1722126508
-      Icon 0: 891942287
-      Joystick 0: 1328899968
-      Joystick 1: -1798395208
-      Panel: -8390244
-      Select 0: -181907988
-      Select 1: -1786786079
-      Select 2: -344242777
-      Select 3: -205726582
-      Select 4: 563336626
-      Select 5: -762074860
-      Select 6: -201829820
-      Select 7: -966295699
-      Select 8: 927338625
-      Select 9: -1002307068
-      Title 0: 1315674547
-      Title 1: -1799623379
-      Title 2: -77559378
-  spritePackingTag: 
+      UI_0: 407305335
+      UI_1: -2028458763
+      UI_10: -1245400418
+      UI_11: -1436851032
+      UI_12: 250363632
+      UI_13: -338810910
+      UI_14: -1011283146
+      UI_15: 1743701075
+      UI_16: 1937049206
+      UI_17: 179955286
+      UI_18: -1980220943
+      UI_19: -881106514
+      UI_2: -1866350099
+      UI_20: 1414568281
+      UI_21: -1532736571
+      UI_22: -294646513
+      UI_3: 1107050941
+      UI_4: 1040701815
+      UI_5: -260863283
+      UI_6: -1544132279
+      UI_7: 702569543
+      UI_8: -798736594
+      UI_9: 607152269
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 238068
-  packageName: Undead Survivor Assets Pack
-  packageVersion: 1.3
-  assetPath: Assets/Undead Survivor/Sprites/UI.png
-  uploadId: 633846
