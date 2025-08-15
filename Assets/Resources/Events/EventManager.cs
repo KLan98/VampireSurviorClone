@@ -8,7 +8,7 @@ public class EventManager : MonoBehaviour
     public static event Action OnInitWeaponChose;
     public static event Action<int> OnAssignItemToAdd;
     public static event Action<bool> OnWeaponSelected;
-    public static event Action OnWeaponSelectionUIActive;
+    //public static event Action OnWeaponSelectionUIActive;
     public static event Action OnRefreshPauseMenuUI;
 
     public static void CallAddItem()
@@ -30,10 +30,10 @@ public class EventManager : MonoBehaviour
         OnWeaponSelected?.Invoke(weaponSelected);
     }
 
-    public static void WeaponSelectionUIActive()
-    {
-        OnWeaponSelectionUIActive?.Invoke();
-    }
+    //public static void WeaponSelectionUIActive()
+    //{
+    //    OnWeaponSelectionUIActive?.Invoke();
+    //}
 
     public static void RefreshPauseMenuUI()
     {

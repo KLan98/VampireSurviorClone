@@ -28,7 +28,13 @@ public class EnemyController : MonoBehaviour
         enemyDieState = new EnemyDieState(stateMachine, this);
 
         // Constructor injection
-        stateMachine.InitState(enemyMoveState);        
+        stateMachine.InitState(enemyMoveState);    
+    }
+
+    private void Start()
+    {
+        // init fields
+        rb.freezeRotation = true;
     }
 
     private void Update()

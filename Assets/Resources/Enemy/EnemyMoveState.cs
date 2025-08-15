@@ -29,9 +29,9 @@ public class EnemyMoveState : EnemyState
     public override void PhysicsUpdate()
     {
         // Handle the movement of enemy, enemies always move toward player
-        this.enemyController.transform.position = Vector2.MoveTowards(
-                this.enemyController.transform.position,
-                enemyController.playerControl.transform.position,
+        this.enemyController.rb.position = Vector2.MoveTowards(
+                this.enemyController.rb.position,
+                enemyController.playerControl.rb.position,
                 speed * Time.deltaTime);
     }
 }

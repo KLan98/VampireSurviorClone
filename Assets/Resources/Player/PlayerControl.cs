@@ -37,6 +37,12 @@ public class PlayerControl : MonoBehaviour
         LoadAnimator();
     }
 
+    private void Start()
+    {
+        // init fields
+        rb.freezeRotation = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
