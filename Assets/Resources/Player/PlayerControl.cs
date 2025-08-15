@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     public Camera playerCamera;
+    public InventoryManager inventoryManager;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class PlayerControl : MonoBehaviour
         // load components
         LoadRigidBody();
         LoadAnimator();
+        LoadInventoryManager();
     }
 
     private void Start()
@@ -63,5 +65,10 @@ public class PlayerControl : MonoBehaviour
     private void LoadAnimator()
     {
         animator = gameObject.GetComponent<Animator>();
+    }
+
+    private void LoadInventoryManager()
+    {
+        inventoryManager = GameObject.Find("Managers").GetComponentInChildren<InventoryManager>();
     }
 }
