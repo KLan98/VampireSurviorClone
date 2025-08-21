@@ -10,7 +10,7 @@ public class BulletSpawner<T> : MonoBehaviour where T : Bullet
 
     protected void PoolEnqueue()
     {
-        Debug.Log($"Pool {this} enqueue");
+        //Debug.Log($"Pool {this} enqueue");
         for (int i = 0; i < PoolSize(); i++)
         {
             T bulletPrefab = Instantiate(BulletPrefab());
