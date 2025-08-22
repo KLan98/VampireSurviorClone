@@ -25,12 +25,21 @@ public class PlayerAttack : MonoBehaviour
             }
 
             WeaponClass weapon = slot.GetItem() as WeaponClass; // cast 
-            //Debug.Log($"Weapon is {weapon}");
+
+            if (weapon == null)
+            {
+                Debug.LogWarning($"{weapon} is not a weapon");
+                return;
+            }
+
             timeCounter = timeCounter + Time.deltaTime;
 
             if (timeCounter >= weapon.CoolDownTime)
             {
-                SpawnAttack(weapon);
+                for(int i = 0; i < weapon.NumberOfProjectiles; i++)
+                {
+                    SpawnAttack(weapon);
+                }
                 timeCounter = 0f;
             }
         }
@@ -48,7 +57,23 @@ public class PlayerAttack : MonoBehaviour
         if (weapon.ItemName == "Shotgun")
         {
             ShotgunBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(1, 1));
-            Debug.Log($"{weapon} spawned");
+            //Debug.Log($"{weapon} spawned");
+        }
+
+        if (weapon.ItemName == "Heugabel")
+        {
+            HeugabelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(1, 1));
+        }
+
+        if (weapon.ItemName == "Sichel")
+        {
+            SichelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(0, 1));
+            //Debug.Log($"{weapon} spawned");
+        }
+
+        if (weapon.ItemName == "Schaufel")
+        {
+            SchaufelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(1, 0));
         }
     }
 

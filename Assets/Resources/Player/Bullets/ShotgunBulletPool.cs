@@ -7,26 +7,26 @@ public class ShotgunBulletPool : BulletSpawner<ShotgunBullet>
     [SerializeField] private ShotgunBullet bulletPrefab;
     public static ShotgunBulletPool Instance;
 
-protected override int PoolSize()
-{
-    return 100;
-}
+    protected override int PoolSize()
+    {
+        return 100;
+    }
 
-private void Awake()
-{
-    LoadBulletPrefab();
-    PoolEnqueue();
+    private void Awake()
+    {
+        LoadBulletPrefab();
+        PoolEnqueue();
 
-    Instance = this;
-}
+        Instance = this;
+    }
 
-protected override ShotgunBullet BulletPrefab()
-{
-    return bulletPrefab;
-}
+    protected override ShotgunBullet BulletPrefab()
+    {
+        return bulletPrefab;
+    }
 
-private void LoadBulletPrefab()
-{
-    bulletPrefab = GameObject.Find("Bullets").GetComponentInChildren<ShotgunBullet>(true);
-}
+    private void LoadBulletPrefab()
+    {
+        bulletPrefab = GameObject.Find("Bullets").GetComponentInChildren<ShotgunBullet>(true);
+    }
 }

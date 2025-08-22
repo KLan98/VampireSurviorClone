@@ -10,7 +10,7 @@ public class EnemyOffScreenPosition : IEnemyPositionProvider
     {
         float x = 0f, y = 0f;
         int side = Random.Range(0, 4); // 0 = Top, 1 = Bottom, 2 = Left, 3 = Right
-        Debug.Log($"Spawn side = {side}");
+        //Debug.Log($"Spawn side = {side}");
         switch (side)
         {
             case 0: // Top

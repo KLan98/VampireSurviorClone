@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    protected float bulletTimeout = 8.0f;
+
     public WeaponClass weaponClass;
 
     protected void Update()
     {
         transform.Translate(Vector2.up * weaponClass.BulletSpeed * Time.deltaTime);
-    }
-
-    protected void Awake()
-    {
-        //LoadRigidbody();
     }
 
     public void InitBullet(Vector2 spawnPosition, Vector2 spawnDirection)
@@ -22,19 +19,13 @@ public class Bullet : MonoBehaviour
         this.gameObject.transform.up = spawnDirection; // y-axis as spawnDirection
     }
 
-    protected virtual void ReturnToPool()
+    protected void OnEnable()
     {
-
+        Invoke(nameof(TriggerReturnToPool), bulletTimeout);
     }
 
-    // return the bulelt to pool if it is not piercing bullet and collide an enemy collider2d
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void TriggerReturnToPool()
     {
-
+        Debug.Log($"{this} returned to pool");
     }
-
-    //private void LoadRigidbody()
-    //{
-    //    rb = gameObject.GetComponent<Rigidbody2D>();
-    //}
 }

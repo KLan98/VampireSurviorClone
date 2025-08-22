@@ -53,6 +53,15 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
+    [SerializeField] private float projectileAngle;
+    public float ProjectileAngle
+    {
+        get
+        {
+            return projectileAngle;
+        }
+    }
+
     //
     //public abstract ItemScriptableObject GetItemScriptableObject();
     //public abstract WeaponClass GetWeapon();
