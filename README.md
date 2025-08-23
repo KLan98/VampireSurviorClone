@@ -9,5 +9,5 @@ Experimented with data-driven balancing (enemy HP, spawn rates, upgrade effects)
 
 Gained hands-on experience in rapid prototyping and iteration, simulating real-world product feature testing.
 
-https://github.com/user-attachments/assets/4cd8c8ed-ff10-4f43-a378-2fde7679739c
+https://github.com/user-attachments/assets/760f836f-47e3-4ad6-86bb-a307c77267c0
 
