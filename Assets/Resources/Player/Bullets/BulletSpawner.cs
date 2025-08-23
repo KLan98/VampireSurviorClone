@@ -24,9 +24,8 @@ public class BulletSpawner<T> : MonoBehaviour where T : Bullet
     /// Spawn bullet at spawnPosition and with spawnDirection
     /// </summary>
     /// <param name="spawnPosition"></param>
-    /// <param name="spawnDirection"></param>
     /// <returns></returns>
-    public T SpawnBullet(Vector2 spawnPosition, Vector2 spawnDirection)
+    public T SpawnBullet(Vector2 spawnPosition)
     {
         if (bulletPoolQueue.Count == 0)
         {
@@ -35,7 +34,7 @@ public class BulletSpawner<T> : MonoBehaviour where T : Bullet
 
         T spawnedBullet = bulletPoolQueue.Dequeue();
         spawnedBullet.gameObject.SetActive(true);
-        spawnedBullet.InitBullet(spawnPosition, spawnDirection);
+        spawnedBullet.InitBullet(spawnPosition);
         return spawnedBullet;
     }
 

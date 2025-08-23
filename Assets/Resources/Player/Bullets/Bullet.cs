@@ -13,10 +13,9 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.up * weaponClass.BulletSpeed * Time.deltaTime);
     }
 
-    public void InitBullet(Vector2 spawnPosition, Vector2 spawnDirection)
+    public void InitBullet(Vector2 spawnPosition)
     {
         this.gameObject.transform.position = spawnPosition;
-        this.gameObject.transform.up = spawnDirection; // y-axis as spawnDirection
     }
 
     protected void OnEnable()

@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     public Rigidbody2D rb;
     public Camera playerCamera;
     public InventoryManager inventoryManager;
+    public PlayerAttackRange playerAttackRange;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class PlayerControl : MonoBehaviour
         LoadRigidBody();
         LoadAnimator();
         LoadInventoryManager();
+        LoadPlayerAttackRange();
     }
 
     private void Start()
@@ -70,5 +72,10 @@ public class PlayerControl : MonoBehaviour
     private void LoadInventoryManager()
     {
         inventoryManager = GameObject.Find("Managers").GetComponentInChildren<InventoryManager>();
+    }
+
+    private void LoadPlayerAttackRange()
+    {
+        playerAttackRange = gameObject.GetComponentInChildren<PlayerAttackRange>();
     }
 }

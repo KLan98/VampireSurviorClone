@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class ShotgunBullet : Bullet
 {
+    [SerializeField] private PlayerControl playerControl;
+    [SerializeField] private GameObject nearestEnemy;
+
     private IHomingBullet BehaviorHomingBullet { get; set; }
 
-    private ShotgunBullet()
+    public ShotgunBullet()
     {
-        this.BehaviorHomingBullet = new BehaviorHomingBullet(this);
+        BehaviorHomingBullet = new BehaviorHomingBullet(this);
+    }
+
+    private void LoadPlayerControl()
+    {
+        playerControl = GameObject.Find("PlayerControl").GetComponent<PlayerControl>();
     }
 
     protected override void TriggerReturnToPool()
@@ -19,6 +27,7 @@ public class ShotgunBullet : Bullet
 
     private void Awake()
     {
-        BehaviorHomingBullet.TargetNearestEnemy();   
+        LoadPlayerControl();
+        BehaviorHomingBullet.TargetNearestEnemy(playerControl.playerAttackRange.nearestEnemy, playerControl);
     }
 }

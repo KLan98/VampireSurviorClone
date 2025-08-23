@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IHomingBullet 
 {
-    public void TargetNearestEnemy();
+    public void TargetNearestEnemy(GameObject nearestEnemy, PlayerControl playerControl);
 }

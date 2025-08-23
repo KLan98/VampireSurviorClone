@@ -56,49 +56,24 @@ public class PlayerAttack : MonoBehaviour
         // if the bullet is homing the bullet spawnDirection = direction of nearest enemy
         if (weapon.ItemName == "Shotgun")
         {
-            ShotgunBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(1, 1));
+            ShotgunBulletPool.Instance.SpawnBullet(this.gameObject.transform.position);
             //Debug.Log($"{weapon} spawned");
         }
 
         if (weapon.ItemName == "Heugabel")
         {
-            HeugabelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(1, 1));
+            HeugabelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position);
         }
 
         if (weapon.ItemName == "Sichel")
         {
-            SichelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(0, 1));
+            SichelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position);
             //Debug.Log($"{weapon} spawned");
         }
 
         if (weapon.ItemName == "Schaufel")
         {
-            SchaufelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position, new Vector2(1, 0));
+            SchaufelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position);
         }
     }
-
-    //private Vector2 DistanceToNearestEnemy()
-    //{
-
-    //    return
-    //}
-
-    //public virtual void FindNearestEnemy()
-    //{
-    //    // local variable shouldn't use as [SerializeField] & global variable
-    //    float distanceToEnemy;
-    //    float nearestDistance = Mathf.Infinity;
-
-    //    // calculate distance to each in range enemy
-    //    foreach (EnemyController enemy in this.inRangeEnemies)
-    //    {
-    //        distanceToEnemy = Vector3.Distance(gameObject.transform.position, enemy.transform.position);
-
-    //        if (distanceToEnemy < nearestDistance)
-    //        {
-    //            this.nearestEnemy = enemy;
-    //            nearestDistance = distanceToEnemy;
-    //        }
-    //    }
-    //}
 }

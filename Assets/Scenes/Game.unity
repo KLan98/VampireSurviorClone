@@ -2755,6 +2755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac2ccfd0aa50cc42a66a4a7a49eb836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRangeEnemies: []
+  nearestEnemy: {fileID: 0}
 --- !u!1 &1202014189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,6 +2985,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   playerCamera: {fileID: 0}
   inventoryManager: {fileID: 0}
+  playerAttackRange: {fileID: 0}
 --- !u!95 &1210471029
 Animator:
   serializedVersion: 7
@@ -5303,6 +5306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponClass: {fileID: 11400000, guid: 6ef5828602bc60f45a0c6f917f5a8475, type: 2}
+  playerControl: {fileID: 0}
+  nearestEnemy: {fileID: 0}
 --- !u!1 &1964154814
 GameObject:
   m_ObjectHideFlags: 0
