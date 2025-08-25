@@ -5461,7 +5461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45df56be1c739f546844a5c5b914ee0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 1
+  spawnInterval: 5
 --- !u!4 &1994864678
 Transform:
   m_ObjectHideFlags: 0

@@ -52,6 +52,7 @@ public class PlayerControl : MonoBehaviour
     {
         stateMachine.currentState.HandleInput();
         stateMachine.currentState.LogicUpdate();
+        stateMachine.currentState.SpriteUpdate();
     }
 
     void FixedUpdate()

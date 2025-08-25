@@ -74,4 +74,19 @@ public class Move : State
         playerControl.rb.velocity = forceDirection * moveSpeed;
         //Debug.Log(playerControl.rb.velocity.magnitude);
     }
+
+    public override void SpriteUpdate()
+    {
+        SpriteRenderer playerSprite = playerControl.GetComponent<SpriteRenderer>();
+
+        if (forceDirection.x < 0)
+        {
+            playerSprite.flipX = true;
+        }
+
+        else
+        {
+            playerSprite.flipX = false;
+        }
+    }
 }

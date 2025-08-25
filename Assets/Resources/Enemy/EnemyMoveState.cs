@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyMoveState : EnemyState
 {
     private bool isDead;
+    private bool isKnockedBack;
     private Vector2 forceDirection;
-    private float speed = 2.0f;
+    private float moveSpeed = 2.0f;
 
     public EnemyMoveState(EnemyStateMachine stateMachine, EnemyController enemyController) : base(stateMachine, enemyController)
     {
@@ -19,19 +20,49 @@ public class EnemyMoveState : EnemyState
         {
             enemyController.stateMachine.ChangeState(enemyController.enemyDieState);
         }
-    }
 
-    public override void HandleInput()
-    {
-        //forceDirection = 
+        else if (isKnockedBack)
+        {
+            enemyController.stateMachine.ChangeState(enemyController.enemyKnockedBackState);
+        }
     }
 
     public override void PhysicsUpdate()
     {
-        // Handle the movement of enemy, enemies always move toward player
-        this.enemyController.rb.position = Vector2.MoveTowards(
-                this.enemyController.rb.position,
-                enemyController.playerControl.rb.position,
-                speed * Time.deltaTime);
+        base.PhysicsUpdate();
+
+        Vector2 enemyPosition = enemyController.rb.position;
+        Vector2 playerPosition = enemyController.playerControl.rb.position;
+
+        forceDirection = (playerPosition - enemyPosition).normalized;
+
+        enemyController.rb.velocity = forceDirection * moveSpeed;
+
+        //Debug.Log($"{enemyController.gameObject} has force direction of {forceDirection}");
+    }
+
+    public override void BoolUpdate()
+    {
+
+    }
+
+    public override void SpriteUpdate()
+    {
+        Vector2 enemyPosition = enemyController.transform.position;
+
+        Vector2 playerPosition = enemyController.playerControl.transform.position;
+
+        SpriteRenderer enemySprite = enemyController.GetComponent<SpriteRenderer>();
+
+        if (playerPosition.x < enemyPosition.x)
+        {
+            // Player is on the left
+            enemySprite.flipX = true;
+        }
+        else
+        {
+            // Player is on the right
+            enemySprite.flipX = false;
+        }
     }
 }

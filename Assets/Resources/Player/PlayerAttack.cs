@@ -17,32 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        foreach (SlotClass slot in playerControl.inventoryManager.ItemDB)
-        {
-            if (slot == null)
-            {
-                return;
-            }
-
-            WeaponClass weapon = slot.GetItem() as WeaponClass; // cast 
-
-            if (weapon == null)
-            {
-                Debug.LogWarning($"{weapon} is not a weapon");
-                return;
-            }
-
-            timeCounter = timeCounter + Time.deltaTime;
-
-            if (timeCounter >= weapon.CoolDownTime)
-            {
-                for(int i = 0; i < weapon.NumberOfProjectiles; i++)
-                {
-                    SpawnAttack(weapon);
-                }
-                timeCounter = 0f;
-            }
-        }
+        CheckAttack();
     }
 
     // Player attack should reference inventory Manager through player Control
@@ -74,6 +49,41 @@ public class PlayerAttack : MonoBehaviour
         if (weapon.ItemName == "Schaufel")
         {
             SchaufelBulletPool.Instance.SpawnBullet(this.gameObject.transform.position);
+        }
+    }
+
+    private void CheckAttack()
+    {
+        if (playerControl.playerAttackRange.InRangeEnemies.Count <= 0)
+        {
+            return;
+        }
+
+        foreach (SlotClass slot in playerControl.inventoryManager.ItemDB)
+        {
+            if (slot == null)
+            {
+                return;
+            }
+
+            WeaponClass weapon = slot.GetItem() as WeaponClass; // cast 
+
+            if (weapon == null)
+            {
+                Debug.LogWarning($"{weapon} is not a weapon");
+                return;
+            }
+
+            timeCounter = timeCounter + Time.deltaTime;
+
+            if (timeCounter >= weapon.CoolDownTime)
+            {
+                for (int i = 0; i < weapon.NumberOfProjectiles; i++)
+                {
+                    SpawnAttack(weapon);
+                }
+                timeCounter = 0f;
+            }
         }
     }
 }

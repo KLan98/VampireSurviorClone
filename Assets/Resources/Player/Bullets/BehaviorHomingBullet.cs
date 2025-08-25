@@ -12,14 +12,20 @@ public class BehaviorHomingBullet : IHomingBullet
     }
 
     public void TargetNearestEnemy(GameObject nearestEnemy, PlayerControl playerControl)
-    {
-        Debug.Log($"{bullet} targets nearest enemy {nearestEnemy}");
+    {        
         if (nearestEnemy == null)
+        {
+            return;
+        }
+
+        if (!nearestEnemy.gameObject.CompareTag("Enemy"))
         {
             return;
         }
 
         Vector2 bulletDirection = (nearestEnemy.transform.position - playerControl.transform.position).normalized;
         bullet.gameObject.transform.up = bulletDirection;
+
+        Debug.Log($"{bullet} targets nearest enemy {nearestEnemy}");
     }
 }

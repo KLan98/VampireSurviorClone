@@ -8,9 +8,10 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public EnemyStateMachine stateMachine;
-    private EnemyMoveState enemyMoveState;
+    public EnemyMoveState enemyMoveState;
     public EnemyDieState enemyDieState;
-
+    public EnemyKnockedBackState enemyKnockedBackState;
+    
     [Header("Components")]
     public Rigidbody2D rb;
     public PlayerControl playerControl;
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour
 
         enemyMoveState = new EnemyMoveState(stateMachine, this);
         enemyDieState = new EnemyDieState(stateMachine, this);
+        enemyKnockedBackState = new EnemyKnockedBackState(stateMachine, this);
 
         // Constructor injection
         stateMachine.InitState(enemyMoveState);    
@@ -41,6 +43,7 @@ public class EnemyController : MonoBehaviour
     {
         // Constructor injection
         stateMachine.currentState.LogicUpdate();
+        stateMachine.currentState.SpriteUpdate();
     }
 
     private void FixedUpdate()

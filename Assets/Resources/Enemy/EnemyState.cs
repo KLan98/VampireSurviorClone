@@ -28,12 +28,26 @@ public class EnemyState
 
     }
 
+    /// <summary>
+    /// Update physics for moving objects, if they have rb component
+    /// </summary>
     public virtual void PhysicsUpdate()
+    {
+        if (this.enemyController.gameObject.GetComponent<Rigidbody2D>() == null)
+        {
+            return;
+        }
+    }
+
+    /// <summary>
+    /// Update local booleans 
+    /// </summary>
+    public virtual void BoolUpdate()
     {
 
     }
 
-    public virtual void HandleInput()
+    public virtual void SpriteUpdate()
     {
 
     }

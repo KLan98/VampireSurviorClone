@@ -9,6 +9,7 @@ public class PlayerAttackRange : MonoBehaviour
     private float placeHolderMinDistance = 100;
 
     [SerializeField] private List<GameObject> inRangeEnemies;
+    public List<GameObject> InRangeEnemies => inRangeEnemies;
     public GameObject nearestEnemy;
 
     private void Awake()

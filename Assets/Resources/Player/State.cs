@@ -42,4 +42,9 @@ public class State
     {
         //Debug.Log($"Exit state {this}");
     }
+
+    public virtual void SpriteUpdate()
+    {
+
+    }
 }

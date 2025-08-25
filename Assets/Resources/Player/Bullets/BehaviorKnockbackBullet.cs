@@ -19,7 +19,17 @@ public class BehaviorKnockbackBullet : IKnockbackBullet
             return;
         }
 
+        Rigidbody2D enemyRb = enemy.transform.GetComponent<Rigidbody2D>();
+
+        if (enemyRb == null)
+        {
+            Debug.LogWarning($"No rb found on {enemy}");
+            return;
+        }
+
+        enemyRb.velocity = Vector2.zero;
+
         //Debug.Log($"{this.bullet} knocks back enemies");
-        enemy.transform.GetComponent<Rigidbody2D>().AddForce(bullet.transform.up * knockForce, ForceMode2D.Impulse);    
+        enemyRb.AddForce(bullet.transform.up * knockForce, ForceMode2D.Impulse);
     }
 }
