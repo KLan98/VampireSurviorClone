@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPiercingBullet
+public interface IKnockbackBullet
 {
-    public void PierceEnemies();
+    public void KnockbackEnemy(GameObject enemy);
 }

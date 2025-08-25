@@ -14,12 +14,12 @@ public abstract class ItemScriptableObject : ScriptableObject
     [SerializeField] private float coolDownTime;
     public float CoolDownTime => coolDownTime;
 
-    [SerializeField] private bool isPiercingBullet;
-    public bool IsPiercingBullet => isPiercingBullet;
+    //[SerializeField] private bool isPieringWeapon;
+    //public bool IsPiercingWeapon => isPieringWeapon;
 
-    [SerializeField] private bool isKnockBackBullet;
-    public bool IsKnockBackBullet => isKnockBackBullet;
-    
+    //[SerializeField] private bool isKnockBackWeapon;
+    //public bool IsKnockBackWeapon => isKnockBackWeapon;
+
     [SerializeField] private int initDamage;
     public int InitDamage => initDamage;
 
@@ -44,14 +44,14 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
-    [SerializeField] private bool isHomingBullet;
-    public bool IsHomingBullet
-    {
-        get
-        {
-            return isHomingBullet;
-        }
-    }
+    //[SerializeField] private bool isHomingWeapon;
+    //public bool IsHomingWeapon
+    //{
+    //    get
+    //    {
+    //        return isHomingWeapon;
+    //    }
+    //}
 
     [SerializeField] private float projectileAngle;
     public float ProjectileAngle
@@ -61,9 +61,6 @@ public abstract class ItemScriptableObject : ScriptableObject
             return projectileAngle;
         }
     }
-
-    //
-    //public abstract ItemScriptableObject GetItemScriptableObject();
-    //public abstract WeaponClass GetWeapon();
 }
+
 

@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Behavior of shotgun bullet
+/// </summary>
 public class ShotgunBullet : Bullet
 {
     [SerializeField] private PlayerControl playerControl;
     [SerializeField] private GameObject nearestEnemy;
 
-    private IHomingBullet BehaviorHomingBullet { get; set; }
-
-    public ShotgunBullet()
-    {
-        BehaviorHomingBullet = new BehaviorHomingBullet(this);
-    }
+    private IHomingBullet BehaviorHomingBullet;
+    private IKnockbackBullet BehaviorKnockbackBullet;
 
     private void LoadPlayerControl()
     {
@@ -27,7 +26,18 @@ public class ShotgunBullet : Bullet
 
     private void Awake()
     {
+        BehaviorKnockbackBullet = new BehaviorKnockbackBullet(this);
+        BehaviorHomingBullet = new BehaviorHomingBullet(this);
         LoadPlayerControl();
         BehaviorHomingBullet.TargetNearestEnemy(playerControl.playerAttackRange.nearestEnemy, playerControl);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            BehaviorKnockbackBullet.KnockbackEnemy(collision.transform.gameObject);
+            TriggerReturnToPool();
+        }
     }
 }
