@@ -54,10 +54,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void CheckAttack()
     {
-        if (playerControl.playerAttackRange.InRangeEnemies.Count <= 0)
-        {
-            return;
-        }
+        //if (playerControl.playerAttackRange.InRangeEnemies.Count <= 0)
+        //{
+        //    return;
+        //}
 
         foreach (SlotClass slot in playerControl.inventoryManager.ItemDB)
         {

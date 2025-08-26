@@ -1,10 +1,9 @@
+using NUnit;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Constructor injection
-/// </summary>
 public class EnemyController : MonoBehaviour
 {
     public EnemyStateMachine stateMachine;
@@ -44,6 +43,7 @@ public class EnemyController : MonoBehaviour
         // Constructor injection
         stateMachine.currentState.LogicUpdate();
         stateMachine.currentState.SpriteUpdate();
+        stateMachine.currentState.BoolUpdate();
     }
 
     private void FixedUpdate()

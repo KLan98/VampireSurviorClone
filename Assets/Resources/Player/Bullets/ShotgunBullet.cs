@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,10 +35,21 @@ public class ShotgunBullet : Bullet
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Enemy"))
+        EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+
+        if (enemyController != null)
         {
-            BehaviorKnockbackBullet.KnockbackEnemy(collision.transform.gameObject);
+            enemyController.stateMachine.ChangeState(enemyController.enemyKnockedBackState);
+            BehaviorKnockbackBullet.KnockbackEnemy(collision.gameObject);
             TriggerReturnToPool();
+
+            //enemyController.stateMachine.ChangeState(e)
+            //Debug.Log($"{this} hits {collision.transform.gameObject}");
+        }
+
+        else
+        {
+            return;
         }
     }
 }

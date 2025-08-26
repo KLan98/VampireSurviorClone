@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
         this.gameObject.transform.position = spawnPosition;
     }
 
-    protected void OnEnable()
+    protected virtual void OnEnable()
     {
         Invoke(nameof(TriggerReturnToPool), bulletTimeout);
     }
