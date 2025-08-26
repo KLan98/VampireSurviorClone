@@ -53,22 +53,22 @@ public class EnemySummon : MonoBehaviour
         if (pool is ZombiePool zombiePool)
         {
             Zombie spawnedZombie = zombiePool.SpawnEnemy(spawnPosition);
-            Debug.Log($"Spawned {spawnedZombie} at position {spawnPosition}");
+            //Debug.Log($"Spawned {spawnedZombie} at position {spawnPosition}");
         }
         else if (pool is SkeletonPool skeletonPool)
         {
             Skeleton spawnedSkeleton = skeletonPool.SpawnEnemy(spawnPosition);
-            Debug.Log($"Spawned {spawnedSkeleton} at position {spawnPosition}");
+            //Debug.Log($"Spawned {spawnedSkeleton} at position {spawnPosition}");
         }
         else if (pool is DemonPool demonPool)
         {
             Demon spawnedDemon = demonPool.SpawnEnemy(spawnPosition);
-            Debug.Log($"Spawned {spawnedDemon} at position {spawnPosition}");
+            //Debug.Log($"Spawned {spawnedDemon} at position {spawnPosition}");
         }
         else if (pool is FiendPool fiendPool)
         {
             Fiend spawnedFiend = fiendPool.SpawnEnemy(spawnPosition);
-            Debug.Log($"Spawned {spawnedFiend} at position {spawnPosition}");
+            //Debug.Log($"Spawned {spawnedFiend} at position {spawnPosition}");
         }
     }
 }

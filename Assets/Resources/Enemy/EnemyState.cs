@@ -15,7 +15,7 @@ public class EnemyState
 
     public virtual void Enter()
     {
-        //Debug.Log($"Enemy enters state {this}");
+        Debug.Log($"{this.enemyController} enters state {this}");
     }
 
     public virtual void Exit()
@@ -23,17 +23,31 @@ public class EnemyState
         //Debug.Log($"Enemy exits state = {this}");
     }
 
+    /// <summary>
+    /// Change state whenever a bool is set
+    /// </summary>
     public virtual void LogicUpdate()
     {
 
     }
 
+    /// <summary>
+    /// Update physics for moving objects, if they have rb component
+    /// </summary>
     public virtual void PhysicsUpdate()
+    {
+    
+    }
+
+    /// <summary>
+    /// Update local booleans 
+    /// </summary>
+    public virtual void BoolUpdate()
     {
 
     }
 
-    public virtual void HandleInput()
+    public virtual void SpriteUpdate()
     {
 
     }

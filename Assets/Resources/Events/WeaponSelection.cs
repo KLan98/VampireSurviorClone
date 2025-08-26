@@ -19,6 +19,7 @@ public class WeaponSelection : MonoBehaviour
     {
         // init components/ game objects/ fields
         LoadPoolOfWeapons();
+        InitWeaponDB();
         AllocateWeaponDB();
         LoadSlotsChildren();
 
@@ -49,6 +50,11 @@ public class WeaponSelection : MonoBehaviour
         // clone the og array 
         SlotClass[] shuffledPool = (SlotClass[])poolOfWeaponsComponent.poolOfWeapons.Clone();
 
+        //for (int i = 0; i < shuffledPool.Length; i++)
+        //{
+        //    Debug.Log(shuffledPool[i].GetItem().name);
+        //}
+
         // Fisher-Yates shuffle
         // declare decrementing list
         for (int i = shuffledPool.Length - 1; i > 0 ; i--)
@@ -76,7 +82,7 @@ public class WeaponSelection : MonoBehaviour
         {
             // randomly assign weaponDB
             weaponDB[i] = shuffledPool[i];
-            //Debug.Log($"WeaponDB at index {i} {weaponDB[i].GetItem().ItemName}");
+            Debug.Log($"WeaponDB at index {i} {weaponDB[i].GetItem().ItemName}");
         }
     }
 
@@ -107,5 +113,13 @@ public class WeaponSelection : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Init weapon DB array with 3 elements
+    /// </summary>
+    private void InitWeaponDB()
+    {
+        weaponDB = new SlotClass[3];
     }
 }

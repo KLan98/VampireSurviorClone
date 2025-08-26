@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     public Camera playerCamera;
+    public InventoryManager inventoryManager;
+    public PlayerAttackRange playerAttackRange;
 
     private void Awake()
     {
@@ -35,6 +37,8 @@ public class PlayerControl : MonoBehaviour
         // load components
         LoadRigidBody();
         LoadAnimator();
+        LoadInventoryManager();
+        LoadPlayerAttackRange();
     }
 
     private void Start()
@@ -48,6 +52,7 @@ public class PlayerControl : MonoBehaviour
     {
         stateMachine.currentState.HandleInput();
         stateMachine.currentState.LogicUpdate();
+        stateMachine.currentState.SpriteUpdate();
     }
 
     void FixedUpdate()
@@ -63,5 +68,15 @@ public class PlayerControl : MonoBehaviour
     private void LoadAnimator()
     {
         animator = gameObject.GetComponent<Animator>();
+    }
+
+    private void LoadInventoryManager()
+    {
+        inventoryManager = GameObject.Find("Managers").GetComponentInChildren<InventoryManager>();
+    }
+
+    private void LoadPlayerAttackRange()
+    {
+        playerAttackRange = gameObject.GetComponentInChildren<PlayerAttackRange>();
     }
 }

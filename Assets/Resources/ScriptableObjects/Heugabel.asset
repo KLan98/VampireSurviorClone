@@ -9,8 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba6449c869d75e45a3476190e7d2e70, type: 3}
+  m_Script: {fileID: 11500000, guid: 63f94f964abd0be4c85a3ea46206abf1, type: 3}
   m_Name: Heugabel
   m_EditorClassIdentifier: 
   itemName: Heugabel
   itemSprite: {fileID: 21300000, guid: 61baad14aed05284b8122c72b5016881, type: 2}
+  coolDownTime: 0.3
+  isPiercingBullet: 0
+  isKnockBackBullet: 1
+  initDamage: 1
+  level: 1
+  numberOfProjectiles: 1
+  bulletSpeed: 5
+  isHomingBullet: 1

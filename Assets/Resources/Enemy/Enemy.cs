@@ -20,6 +20,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void TriggerReturnToPool()
     {
-
+        Debug.Log($"{this} returned to pool");
     }
 }

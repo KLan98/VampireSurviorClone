@@ -10,7 +10,8 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private SlotClass[] itemDB;
-    [SerializeField] public SlotClass itemToAdd;
+    public SlotClass[] ItemDB => itemDB;
+    [SerializeField] private SlotClass itemToAdd;
     [SerializeField] private SlotClass itemToRemove;
 
 
@@ -41,6 +42,8 @@ public class InventoryManager : MonoBehaviour
     /// </summary>
     private void AddItem()
     {
+        //Debug.Log("Call add item");
+
         if (itemDB == null)
         {
             Debug.LogWarning("itemDB is null");
@@ -58,9 +61,14 @@ public class InventoryManager : MonoBehaviour
                 return;
             }
 
+            else if (itemDB[i] != null)
+            {
+                Debug.LogWarning($"ItemDB at index {i} is not null, itemDB[i] = {itemDB[i]}");
+            }
+
             else
             {
-                Debug.Log($"ItemDB at index {i} is not null, itemDB[i] = {itemDB[i]}");
+                Debug.LogWarning($"Exception, value of itemDB[i] is not defined = {itemDB[i]}");
             }
         }
     }
