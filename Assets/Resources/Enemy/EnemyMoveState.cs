@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMoveState : EnemyState
 {
     private bool isDead;
-    private bool isKnockedBack;
     private Vector2 forceDirection;
     private float moveSpeed = 2.0f;
 
@@ -19,11 +18,6 @@ public class EnemyMoveState : EnemyState
         if (isDead)
         {
             enemyController.stateMachine.ChangeState(enemyController.enemyDieState);
-        }
-
-        else if (isKnockedBack)
-        {
-            enemyController.stateMachine.ChangeState(enemyController.enemyKnockedBackState);
         }
     }
 
@@ -39,11 +33,6 @@ public class EnemyMoveState : EnemyState
         enemyController.rb.velocity = forceDirection * moveSpeed;
 
         //Debug.Log($"{enemyController.gameObject} has force direction of {forceDirection}");
-    }
-
-    public override void BoolUpdate()
-    {
-
     }
 
     public override void SpriteUpdate()

@@ -8,11 +8,6 @@ public class SlotClass
 {
     [SerializeField] private ItemScriptableObject item;
 
-    //public SlotClass(ItemScriptableObject item)
-    //{
-    //    this.item = item;
-    //}
-
     // Get the assigned item in SlotClass
     public ItemScriptableObject GetItem()
     {

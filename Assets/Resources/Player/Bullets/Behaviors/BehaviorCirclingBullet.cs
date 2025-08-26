@@ -7,15 +7,8 @@ using UnityEngine;
 /// </summary>
 public class BehaviorCirclingBullet : ICirclingBullet
 {
-    // Start is called before the first frame update
-    void Start()
+    public void RevolveAroundPlayer()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

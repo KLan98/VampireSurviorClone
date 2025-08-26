@@ -36,10 +36,7 @@ public class EnemyState
     /// </summary>
     public virtual void PhysicsUpdate()
     {
-        if (this.enemyController.gameObject.GetComponent<Rigidbody2D>() == null)
-        {
-            return;
-        }
+    
     }
 
     /// <summary>
