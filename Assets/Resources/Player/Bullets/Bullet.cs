@@ -8,11 +8,6 @@ public class Bullet : MonoBehaviour
 
     public WeaponClass weaponClass;
 
-    protected void Update()
-    {
-        transform.Translate(Vector2.up * weaponClass.BulletSpeed * Time.deltaTime);
-    }
-
     public void InitBullet(Vector2 spawnPosition)
     {
         this.gameObject.transform.position = spawnPosition;
