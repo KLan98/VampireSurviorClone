@@ -13,6 +13,7 @@ public class ShotgunBullet : Bullet
 
     private IHomingBullet BehaviorHomingBullet;
     private IKnockbackBullet BehaviorKnockbackBullet;
+    private IDefaultBehavior DefaultBehavior;
 
     private void LoadPlayerControl()
     {
@@ -29,6 +30,7 @@ public class ShotgunBullet : Bullet
     {
         BehaviorKnockbackBullet = new BehaviorKnockbackBullet(this);
         BehaviorHomingBullet = new BehaviorHomingBullet(this);
+        DefaultBehavior = new BehaviorDefault(this);
         LoadPlayerControl();
         BehaviorHomingBullet.TargetNearestEnemy(playerControl.playerAttackRange.nearestEnemy, playerControl);
     }
@@ -51,5 +53,10 @@ public class ShotgunBullet : Bullet
         {
             return;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        DefaultBehavior.FlyStraight();
     }
 }
