@@ -15,9 +15,8 @@ MonoBehaviour:
   itemName: Sichel
   itemSprite: {fileID: 21300000, guid: 726d4af31f2337f46a130cf395017747, type: 2}
   coolDownTime: 0.5
-  isPiercingBullet: 1
-  isKnockBackBullet: 0
   initDamage: 1
   level: 1
   numberOfProjectiles: 1
   bulletSpeed: 4
+  projectileAngle: 0
