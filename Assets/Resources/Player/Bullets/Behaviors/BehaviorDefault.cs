@@ -13,6 +13,6 @@ public class BehaviorDefault : IDefaultBehavior
 
     public void FlyStraight()
     {
-        bullet.transform.Translate(Vector2.up * bullet.weaponClass.BulletSpeed * Time.deltaTime);
+        bullet.transform.Translate(Vector2.up * bullet.WeaponClass.BulletSpeed * Time.deltaTime);
     }
 }

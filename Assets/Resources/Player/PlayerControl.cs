@@ -9,6 +9,11 @@ public class PlayerControl : MonoBehaviour
     public Move moveState;
     public PlayerInputActions playerInput;
 
+    private PlayerAttack playerAttack;
+    private AttackScheduler attackScheduler;
+    private IBulletSpawnerRegistry spawnerRegistry;
+    private ITimeProvider timeProvider;
+
     [Header("Components")]
     public Animator animator;
     public Rigidbody2D rb;
@@ -18,18 +23,20 @@ public class PlayerControl : MonoBehaviour
 
     private void Awake()
     {
-        // create new object
+        // create new instances
         stateMachine = new StateMachine();
-
-        // create new objects 
         idleState = new Idle(stateMachine, this);
         moveState = new Move(stateMachine, this);
+        playerInput = new PlayerInputActions();
+
+        // create new instances for player attack
+        timeProvider = new UnityTimeProvider();
+        spawnerRegistry = new BulletSpawnerRegistry();
+        attackScheduler = new AttackScheduler(spawnerRegistry, timeProvider);
+        playerAttack = new PlayerAttack(this, attackScheduler, spawnerRegistry, timeProvider);
 
         // set init state
         stateMachine.InitState(idleState);
-
-        // create new object
-        playerInput = new PlayerInputActions();
 
         // enable input action
         playerInput.Enable();
@@ -53,6 +60,7 @@ public class PlayerControl : MonoBehaviour
         stateMachine.currentState.HandleInput();
         stateMachine.currentState.LogicUpdate();
         stateMachine.currentState.SpriteUpdate();
+        playerAttack.SpawnAttacks();
     }
 
     void FixedUpdate()
