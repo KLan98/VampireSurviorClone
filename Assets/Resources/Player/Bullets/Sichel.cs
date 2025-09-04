@@ -10,7 +10,7 @@ public class Sichel : OrbitBullet
     protected override void Awake()
     {
         base.Awake();
-        BehaviorCirclingBullet = new BehaviorCirclingBullet(this, weaponClass, playerControl);
+        BehaviorCirclingBullet = new BehaviorCirclingBullet(this, WeaponClass, playerControl);
     }
 
     protected override void TriggerReturnToPool()

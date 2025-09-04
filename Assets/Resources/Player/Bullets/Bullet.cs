@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour
 {
     protected float bulletTimeout = 8.0f;
 
-    public WeaponClass weaponClass;
+    [SerializeField] private WeaponClass weaponClass;
+    public WeaponClass WeaponClass => weaponClass;
 
     public void InitBullet(Vector2 spawnPosition)
     {

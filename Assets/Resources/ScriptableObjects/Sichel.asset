@@ -20,3 +20,4 @@ MonoBehaviour:
   numberOfProjectiles: 1
   bulletSpeed: 4
   projectileAngle: 0
+  ProjectilePattern: 1
