@@ -14,7 +14,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private SlotClass itemToAdd;
     [SerializeField] private SlotClass itemToRemove;
 
-
     [Header("Game objects")]
     private GameObject[] slotArray;
     [SerializeField] private GameObject slotGameObject; // slot game object of pause menu 
@@ -28,7 +27,6 @@ public class InventoryManager : MonoBehaviour
     {
         // Load components
         LoadUIManager();
-        LoadWeaponSelection();
 
         InitUI();
 
@@ -53,10 +51,10 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemDB[i] == null)
             {
-                //Debug.Log(itemDB[i]);
-
                 itemDB[i] = itemToAdd;
-                //Debug.Log($"Added item {itemToAdd.GetItem().ItemName} to index {i}");
+                itemDB[i].GetItem().NewWeaponAdded = true;
+                Debug.Log($"Added item {itemToAdd.GetItem().ItemName} to index {i}");
+                Debug.Log($"{itemDB[i].GetItem().ItemName} is a new item = {itemDB[i].GetItem().NewWeaponAdded}");
 
                 return;
             }
@@ -133,11 +131,6 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void LoadWeaponSelection()
-    {
-        weaponSelection = GameObject.Find("UI_Components").GetComponentInChildren<WeaponSelection>(true);
     }
 
     private void LoadUIManager()

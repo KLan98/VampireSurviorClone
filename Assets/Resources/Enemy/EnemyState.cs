@@ -15,7 +15,7 @@ public class EnemyState
 
     public virtual void Enter()
     {
-        Debug.Log($"{this.enemyController} enters state {this}");
+        // Debug.Log($"{this.enemyController} enters state {this}");
     }
 
     public virtual void Exit()

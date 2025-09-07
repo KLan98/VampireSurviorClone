@@ -19,13 +19,7 @@ public class SchaufelBulletPool : BulletSpawner<Schaufel>
 
     private void Awake()
     {
-        LoadBulletPrefab();
         PoolEnqueue();
         Instance = this;
-    }
-
-    private void LoadBulletPrefab()
-    {
-        bulletPrefab = GameObject.Find("Bullets").GetComponentInChildren<Schaufel>(true);
     }
 }

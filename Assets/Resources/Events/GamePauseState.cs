@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GamePauseState : GameState
 {
-    public override void Enter()
+    public override void Enter(GameStateManager gameStateManager)
     {
-        base.Enter();
+        base.Enter(gameStateManager);
 
         UIManager.Instance.pauseMenuUI.SetActive(true);
     }

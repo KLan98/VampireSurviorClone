@@ -17,14 +17,8 @@ public class DemonPool : EnemySpawner<Demon>
         return enemyPrefab;
     }
 
-    private void LoadEnemyPrefab()
-    {
-        enemyPrefab = GameObject.Find("Enemies").GetComponentInChildren<Demon>(true);
-    }
-
     private void Awake()
     {
-        LoadEnemyPrefab();
         PoolEnqueue();
         Instance = this;
     }

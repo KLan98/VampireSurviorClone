@@ -19,13 +19,7 @@ public class SichelBulletPool : BulletSpawner<Sichel>
 
     private void Awake()
     {
-        LoadBulletPrefab();
         PoolEnqueue();
         Instance = this;
-    }
-
-    private void LoadBulletPrefab()
-    {
-        bulletPrefab = GameObject.Find("Bullets").GetComponentInChildren<Sichel>(true);
     }
 }

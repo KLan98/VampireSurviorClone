@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f94f964abd0be4c85a3ea46206abf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 475a02001d0eb7d41995c0c3d6f29a2f, type: 3}
   m_Name: Sichel
   m_EditorClassIdentifier: 
   itemName: Sichel

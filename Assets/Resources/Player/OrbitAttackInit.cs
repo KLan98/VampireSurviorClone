@@ -14,7 +14,7 @@ public class OrbitAttackInit
         this.spawners = spawners;
     }
 
-    public void SpawnOrbitAttack(IEnumerable<SlotClass> slots, Vector3 spawnPosition)
+    public void OrbitAttackSpawnPositionOffset(IEnumerable<SlotClass> slots, Vector3 spawnPosition)
     {
 		// If there are no slots to check, stop here
 		if (slots == null)

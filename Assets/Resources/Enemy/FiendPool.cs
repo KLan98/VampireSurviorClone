@@ -17,14 +17,8 @@ public class FiendPool : EnemySpawner<Fiend>
         return enemyPrefab;
     }
 
-    private void LoadEnemyPrefab()
-    {
-        enemyPrefab = GameObject.Find("Enemies").GetComponentInChildren<Fiend>(true);
-    }
-
     private void Awake()
     {
-        LoadEnemyPrefab();
         PoolEnqueue();
         Instance = this;
     }

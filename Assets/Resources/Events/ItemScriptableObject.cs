@@ -47,6 +47,20 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
+    private bool newWeaponAdded; // check if the weapon is newly added to inventory
+    public bool NewWeaponAdded
+    {
+        get
+        {
+            return newWeaponAdded;
+        }
+
+        set
+        {
+            newWeaponAdded = value;
+        }
+    }
+
     public BulletPattern ProjectilePattern;
 
     public enum BulletPattern

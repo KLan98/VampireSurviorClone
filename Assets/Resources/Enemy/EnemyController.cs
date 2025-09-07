@@ -18,7 +18,6 @@ public class EnemyController : MonoBehaviour
     {
         //LoadEnemyComponent();
         LoadRigidBody();
-        LoadPlayerControl();
 
         stateMachine = new EnemyStateMachine();
 
@@ -50,18 +49,8 @@ public class EnemyController : MonoBehaviour
         stateMachine.currentState.PhysicsUpdate();
     }
 
-    //private void LoadEnemyComponent()
-    //{
-    //    enemy = gameObject.GetComponent<Enemy>();
-    //}
-
     private void LoadRigidBody()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-    }
-
-    private void LoadPlayerControl()
-    {
-        playerControl = GameObject.Find("PlayerControl").GetComponent<PlayerControl>();
     }
 }

@@ -17,14 +17,8 @@ public class SkeletonPool : EnemySpawner<Skeleton>
         return enemyPrefab;
     }
 
-    private void LoadEnemyPrefab()
-    {
-        enemyPrefab = GameObject.Find("Enemies").GetComponentInChildren<Skeleton>(true);
-    }
-
     private void Awake()
     {
-        LoadEnemyPrefab();
         PoolEnqueue();
         Instance = this;
     }

@@ -18,7 +18,6 @@ public class WeaponSelection : MonoBehaviour
     private void Awake()
     {
         // init components/ game objects/ fields
-        LoadPoolOfWeapons();
         InitWeaponDB();
         AllocateWeaponDB();
         LoadSlotsChildren();
@@ -82,13 +81,8 @@ public class WeaponSelection : MonoBehaviour
         {
             // randomly assign weaponDB
             weaponDB[i] = shuffledPool[i];
-            Debug.Log($"WeaponDB at index {i} {weaponDB[i].GetItem().ItemName}");
+            // Debug.Log($"WeaponDB at index {i} {weaponDB[i].GetItem().ItemName}");
         }
-    }
-
-    private void LoadPoolOfWeapons()
-    {
-        poolOfWeaponsComponent = GameObject.Find("PoolOfWeapons").GetComponent<PoolOfWeapons>();
     }
 
     /// <summary>
