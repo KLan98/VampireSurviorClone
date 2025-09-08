@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public abstract class ItemScriptableObject : ScriptableObject
 {
@@ -11,6 +12,7 @@ public abstract class ItemScriptableObject : ScriptableObject
     [SerializeField] private Sprite itemSprite;
     public Sprite ItemSprite => itemSprite;
 
+    [HideIf("ProjectilePattern", BulletPattern.Orbit)]
     [SerializeField] private float coolDownTime;
     public float CoolDownTime => coolDownTime;
 
@@ -47,15 +49,7 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
-    [SerializeField] private float projectileAngle;
-    public float ProjectileAngle
-    {
-        get
-        {
-            return projectileAngle;
-        }
-    }
-
+    [ShowIf("ProjectilePattern", BulletPattern.Orbit)]
     [SerializeField] private float projectileRadius;
     public float ProjectileRadius
     {

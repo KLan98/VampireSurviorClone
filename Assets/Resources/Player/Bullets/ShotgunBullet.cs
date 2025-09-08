@@ -15,11 +15,6 @@ public class ShotgunBullet : Bullet
     private IKnockbackBullet BehaviorKnockbackBullet;
     private IDefaultBehavior DefaultBehavior;
 
-    private void LoadPlayerControl()
-    {
-        playerControl = GameObject.Find("PlayerControl").GetComponent<PlayerControl>();
-    }
-
     protected override void TriggerReturnToPool()
     {
         ShotgunBulletPool.Instance.ReturnToPool(this);
@@ -31,7 +26,6 @@ public class ShotgunBullet : Bullet
         BehaviorKnockbackBullet = new BehaviorKnockbackBullet(this);
         BehaviorHomingBullet = new BehaviorHomingBullet(this);
         DefaultBehavior = new BehaviorDefault(this);
-        LoadPlayerControl();
         BehaviorHomingBullet.TargetNearestEnemy(playerControl.playerAttackRange.nearestEnemy, playerControl);
     }
 
