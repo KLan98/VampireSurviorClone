@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class BulletSpawnerRegistry : IBulletSpawnerRegistry
 {
-	private readonly Dictionary<string, IBulletSpawner> map;
+	private Dictionary<string, IBulletSpawner> map;
 
 	public BulletSpawnerRegistry()
 	{
@@ -20,7 +20,7 @@ public class BulletSpawnerRegistry : IBulletSpawnerRegistry
 
 	private class DelegateSpawner : IBulletSpawner
 	{
-		private readonly System.Action<Vector3> spawnAction;
+		private System.Action<Vector3> spawnAction;
 		public DelegateSpawner(System.Action<Vector3> spawnAction) { this.spawnAction = spawnAction; }
 		public void Spawn(Vector3 position) => spawnAction(position);
 	}

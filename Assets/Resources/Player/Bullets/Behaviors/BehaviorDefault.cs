@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BehaviorDefault : IDefaultBehavior
 {
-    private readonly Bullet bullet;
+    private Bullet bullet;
 
     public BehaviorDefault(Bullet bullet)
     {

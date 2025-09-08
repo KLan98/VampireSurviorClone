@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IBulletSpawner
 {
-    void Spawn(Vector3 position);
+    public void Spawn(Vector3 position);
 }

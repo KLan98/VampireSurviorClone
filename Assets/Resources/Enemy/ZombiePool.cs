@@ -17,14 +17,8 @@ public class ZombiePool : EnemySpawner<Zombie>
         return zombiePrefab;
     }
 
-    private void LoadZombiePrefab()
-    {
-        zombiePrefab = GameObject.Find("Enemies").GetComponentInChildren<Zombie>(true);
-    }
-
     private void Awake()
     {
-        LoadZombiePrefab();
         PoolEnqueue();
         Instance = this;
     }

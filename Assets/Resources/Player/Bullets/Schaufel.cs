@@ -6,7 +6,7 @@ public class Schaufel : Bullet
 {
     public IDefaultBehavior defaultBehavior;
 
-    private void Awake()
+    private void Start()
     {
         defaultBehavior = new BehaviorDefault(this);
     }

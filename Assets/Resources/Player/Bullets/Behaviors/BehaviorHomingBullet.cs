@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BehaviorHomingBullet : IHomingBullet
 {
-    private readonly Bullet bullet;
+    private Bullet bullet;
 
     public BehaviorHomingBullet(Bullet bullet)
     {

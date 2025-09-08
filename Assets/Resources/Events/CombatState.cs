@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CombatState : GameState
 {
-    public override void StateBehaviorUpdate()
+    public override void Enter(GameStateManager gameStateManager)
     {
-
+        base.Enter(gameStateManager);
     }
 }

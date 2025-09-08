@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Sichel : OrbitBullet
+public class Sichel : Bullet
 {
     private ICirclingBullet BehaviorCirclingBullet;
+    [SerializeField] private PlayerControl playerControl;
 
-    protected override void Awake()
+    private void Start()
     {
-        base.Awake();
         BehaviorCirclingBullet = new BehaviorCirclingBullet(this, WeaponClass, playerControl);
-    }
-
-    protected override void TriggerReturnToPool()
-    {
-        SichelBulletPool.Instance.ReturnToPool(this);
-        base.TriggerReturnToPool();
     }
 
     private void FixedUpdate()

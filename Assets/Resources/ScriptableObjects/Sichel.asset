@@ -9,15 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f94f964abd0be4c85a3ea46206abf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 475a02001d0eb7d41995c0c3d6f29a2f, type: 3}
   m_Name: Sichel
   m_EditorClassIdentifier: 
   itemName: Sichel
   itemSprite: {fileID: 21300000, guid: 726d4af31f2337f46a130cf395017747, type: 2}
-  coolDownTime: 0.5
+  coolDownTime: 0
   initDamage: 1
   level: 1
-  numberOfProjectiles: 1
-  bulletSpeed: 4
+  numberOfProjectiles: 3
+  bulletSpeed: 5
+  bulletSpeedMultiplier: 1
   projectileAngle: 0
+  projectileRadius: 3
   ProjectilePattern: 1

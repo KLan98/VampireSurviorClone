@@ -6,17 +6,27 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance;
 
-    private GameState currentState;
-    //public GameState CurrentState => currentState;
-
-    void Awake()
+    [Header("Components")]
+    [SerializeField] private InventoryManager inventoryManager;
+    public InventoryManager InventoryManager
     {
+        get
+        {
+            return inventoryManager;
+        }
+    }
+
+    private GameState currentState;
+
+    private void Awake()
+    {
+        LoadInventoryManager();
         if (Instance == null) Instance = this;
 
         ChangeState(new ChooseWeaponState());
     }
 
-    void Update()
+    private void Update()
     {
         if (currentState != null)
         {
@@ -30,7 +40,13 @@ public class GameStateManager : MonoBehaviour
         {
             currentState.Exit();
         }
-        currentState = newState;  // Switch to new state
-        currentState.Enter();     // Enter the new state
+        currentState = newState; // Switch to new state
+        currentState.Enter(this); // Enter the new state
+    }
+
+    private void LoadInventoryManager()
+    {
+        GameObject parent = gameObject.transform.parent.gameObject;
+        inventoryManager = parent.GetComponentInChildren<InventoryManager>();
     }
 }

@@ -8,18 +8,27 @@ public class PlayerAttack
     private AttackScheduler scheduler;
     private IBulletSpawnerRegistry spawnerRegistry;
     private ITimeProvider timeProvider;
+    private OrbitAttackInit orbitAttackInit;
 
-    public PlayerAttack(PlayerControl playerControl, AttackScheduler scheduler, IBulletSpawnerRegistry spawnerRegistry, ITimeProvider timeProvider)
+    public PlayerAttack(PlayerControl playerControl, AttackScheduler scheduler, OrbitAttackInit orbitAttackInit, IBulletSpawnerRegistry spawnerRegistry, ITimeProvider timeProvider)
     {
         this.playerControl = playerControl;
         this.scheduler = scheduler;
+        this.orbitAttackInit = orbitAttackInit;
         this.spawnerRegistry = spawnerRegistry;
         this.timeProvider = timeProvider;
     }
 
-    // Spawn attack through scheduler 
-    public void SpawnAttacks()
+    // Spawn attacks through scheduler 
+    public void SpawnScheduledAttacks()
     {
         scheduler.UpdateWeaponFiring(playerControl.inventoryManager.ItemDB, playerControl.transform.position);
+    }
+
+    // Spawn orbit attacks based on init pivot
+    public void SpawnOrbitAttacks()
+    {
+        orbitAttackInit.OrbitAttackSetInitPivot(playerControl.inventoryManager.ItemDB, playerControl.transform.position);
+        // Debug.Log("SpawnOrbitAttacks method executed");
     }
 }

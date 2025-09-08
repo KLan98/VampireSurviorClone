@@ -14,7 +14,6 @@ public class ShotgunBulletPool : BulletSpawner<ShotgunBullet>
 
     private void Awake()
     {
-        LoadBulletPrefab();
         PoolEnqueue();
 
         Instance = this;
@@ -23,10 +22,5 @@ public class ShotgunBulletPool : BulletSpawner<ShotgunBullet>
     protected override ShotgunBullet BulletPrefab()
     {
         return bulletPrefab;
-    }
-
-    private void LoadBulletPrefab()
-    {
-        bulletPrefab = GameObject.Find("Bullets").GetComponentInChildren<ShotgunBullet>(true);
     }
 }

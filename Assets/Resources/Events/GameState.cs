@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class GameState
 {
-    public virtual void Enter()
+    public virtual void Enter(GameStateManager gameStateManager)
     {
-        Debug.Log($"Enter {this} state");
+        Debug.Log($"-----Enter {this} state-----");
     }
 
     /// <summary>
@@ -19,6 +19,6 @@ public abstract class GameState
 
     public virtual void Exit()
     {
-        Debug.Log($"Exit {this} state");
+        Debug.Log($"-----Exit {this} state-----");
     }
 }

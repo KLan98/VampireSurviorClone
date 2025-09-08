@@ -5,7 +5,7 @@ using UnityEngine;
 // TODO defines behavior for piercing bullet
 public class BehaviorPiercingBullet : IPiercingBullet
 {
-    private readonly Bullet bullet;
+    private Bullet bullet;
 
     public BehaviorPiercingBullet(Bullet bullet)
     {

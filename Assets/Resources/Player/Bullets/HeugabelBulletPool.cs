@@ -14,7 +14,6 @@ public class HeugabelBulletPool : BulletSpawner<Heugabel>
 
     private void Awake()
     {
-        LoadBulletPrefab();
         PoolEnqueue();
 
         Instance = this;
@@ -23,10 +22,5 @@ public class HeugabelBulletPool : BulletSpawner<Heugabel>
     protected override Heugabel BulletPrefab()
     {
         return bulletPrefab;
-    }
-
-    private void LoadBulletPrefab()
-    {
-        bulletPrefab = GameObject.Find("Bullets").GetComponentInChildren<Heugabel>(true);
     }
 }

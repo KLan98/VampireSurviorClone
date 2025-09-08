@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
 
     private PlayerAttack playerAttack;
     private AttackScheduler attackScheduler;
+    private OrbitAttackInit orbitAttackInit;
     private IBulletSpawnerRegistry spawnerRegistry;
     private ITimeProvider timeProvider;
 
@@ -33,7 +34,8 @@ public class PlayerControl : MonoBehaviour
         timeProvider = new UnityTimeProvider();
         spawnerRegistry = new BulletSpawnerRegistry();
         attackScheduler = new AttackScheduler(spawnerRegistry, timeProvider);
-        playerAttack = new PlayerAttack(this, attackScheduler, spawnerRegistry, timeProvider);
+        orbitAttackInit = new OrbitAttackInit(spawnerRegistry);
+        playerAttack = new PlayerAttack(this, attackScheduler, orbitAttackInit, spawnerRegistry, timeProvider);
 
         // set init state
         stateMachine.InitState(idleState);
@@ -44,7 +46,6 @@ public class PlayerControl : MonoBehaviour
         // load components
         LoadRigidBody();
         LoadAnimator();
-        LoadInventoryManager();
         LoadPlayerAttackRange();
     }
 
@@ -55,15 +56,15 @@ public class PlayerControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         stateMachine.currentState.HandleInput();
         stateMachine.currentState.LogicUpdate();
         stateMachine.currentState.SpriteUpdate();
-        playerAttack.SpawnAttacks();
+        playerAttack.SpawnScheduledAttacks();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         stateMachine.currentState.PhysicsUpdate();
     }
@@ -78,13 +79,18 @@ public class PlayerControl : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
     }
 
-    private void LoadInventoryManager()
-    {
-        inventoryManager = GameObject.Find("Managers").GetComponentInChildren<InventoryManager>();
-    }
-
     private void LoadPlayerAttackRange()
     {
         playerAttackRange = gameObject.GetComponentInChildren<PlayerAttackRange>();
+    }
+
+    private void OnEnable()
+    {
+        EventManager.OnOrbitWeaponSelected += HandleSpawnOrbitAttacks;
+    }
+
+    private void HandleSpawnOrbitAttacks()
+    {
+        playerAttack.SpawnOrbitAttacks();
     }
 }

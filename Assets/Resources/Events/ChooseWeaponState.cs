@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class ChooseWeaponState : GameState
 {
-    public override void Enter()
+    public override void Enter(GameStateManager gameStateManager)
     {
-        base.Enter();
+        base.Enter(gameStateManager);
 
         UIManager.Instance.weaponSelectionUI.SetActive(true);
-
-        //EventManager.WeaponSelectionUIActive();
 
         // Subscribe to event
         EventManager.OnWeaponSelected += HandleWeaponSelected;
@@ -39,7 +37,9 @@ public class ChooseWeaponState : GameState
         if (weaponSelected)
         {
             // Change to the next state after weapon selection
-            GameStateManager.Instance.ChangeState(new CombatState());
+            // GameStateManager.Instance.ChangeState(new CombatState());
+
+            GameStateManager.Instance.ChangeState(new WeaponInitState());
         }
     }
 }

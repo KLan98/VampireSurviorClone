@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public abstract class ItemScriptableObject : ScriptableObject
 {
@@ -11,6 +12,7 @@ public abstract class ItemScriptableObject : ScriptableObject
     [SerializeField] private Sprite itemSprite;
     public Sprite ItemSprite => itemSprite;
 
+    [HideIf("ProjectilePattern", BulletPattern.Orbit)]
     [SerializeField] private float coolDownTime;
     public float CoolDownTime => coolDownTime;
 
@@ -38,12 +40,36 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
-    [SerializeField] private float projectileAngle;
-    public float ProjectileAngle
+    [SerializeField] private int bulletSpeedMultiplier;
+    public float BulletSpeedMultiplier
     {
         get
         {
-            return projectileAngle;
+            return bulletSpeedMultiplier;
+        }
+    }
+
+    [ShowIf("ProjectilePattern", BulletPattern.Orbit)]
+    [SerializeField] private float projectileRadius;
+    public float ProjectileRadius
+    {
+        get
+        {
+            return projectileRadius;
+        }
+    }
+
+    private bool newWeaponAdded; // check if the weapon is newly added to inventory
+    public bool NewWeaponAdded
+    {
+        get
+        {
+            return newWeaponAdded;
+        }
+
+        set
+        {
+            newWeaponAdded = value;
         }
     }
 
