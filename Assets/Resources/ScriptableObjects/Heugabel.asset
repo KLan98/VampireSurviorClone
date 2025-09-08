@@ -19,5 +19,6 @@ MonoBehaviour:
   level: 1
   numberOfProjectiles: 1
   bulletSpeed: 5
+  bulletSpeedMultiplier: 1
   projectileAngle: 0
   ProjectilePattern: 0

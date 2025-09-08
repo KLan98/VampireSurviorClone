@@ -6,7 +6,7 @@ public class Heugabel : Bullet
 {
     private IDefaultBehavior DefaultBehavior;
 
-    private void Awake()
+    private void Start()
     {
         DefaultBehavior = new BehaviorDefault(this);    
     }

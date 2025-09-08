@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,14 +8,17 @@ using UnityEngine;
 public class OrbitAttackInit
 {
     // A registry that knows how to spawn bullets for each type of weapon
-	private readonly IBulletSpawnerRegistry spawners;
+	private IBulletSpawnerRegistry spawners;
 
     public OrbitAttackInit(IBulletSpawnerRegistry spawners)
     {
         this.spawners = spawners;
     }
 
-    public void OrbitAttackSpawnPositionOffset(IEnumerable<SlotClass> slots, Vector3 spawnPosition)
+	/// <summary>
+	/// spawn orbit attacks revolve a pivot
+	/// <summary>
+    public void OrbitAttackSetInitPivot(IEnumerable<SlotClass> slots, Vector3 pivotPosition)
     {
 		// If there are no slots to check, stop here
 		if (slots == null)
@@ -44,15 +48,27 @@ public class OrbitAttackInit
 
 			if (weapon.ProjectilePattern == ItemScriptableObject.BulletPattern.Orbit)
 			{
-                // If enough time has passed, try to get a bullet spawner for this weapon
 				if (spawners.TryGetSpawner(weaponId, out IBulletSpawner spawner))
 				{
-					// // Spawn as many projectiles as the weapon says it should
-					// for (int i = 0; i < weapon.NumberOfProjectiles; i++)
-					// {
+					// Spawn as many projectiles as the weapon says it should
+					for (int i = 0; i < weapon.NumberOfProjectiles; i++)
+					{
+						float angle = i * Mathf.PI * 2f / weapon.NumberOfProjectiles;
+
+						// Debug.Log("spawn angle = " + angle * 180 / Math.PI);
+
+						// Direction on XY plane
+						Vector3 dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f);
+
+						// Position offset
+						Vector3 spawnPos = pivotPosition + dir * weapon.ProjectileRadius;
+
+						// Debug.Log($"spawn position = {spawnPos}");
+
 						// Spawn the projectile at the given position
-						spawner.Spawn(spawnPosition + new Vector3(0 , 1, 0));
-					// }
+						spawner.Spawn(spawnPos);
+						Debug.Log($"Bullet {weapon.ItemName} spawned at position {spawnPos}");
+					}
 				}
             }
         }

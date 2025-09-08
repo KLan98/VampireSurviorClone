@@ -86,11 +86,11 @@ public class PlayerControl : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OnOrbitWeaponSelected += HandleSpawnOrbitAttack;
+        EventManager.OnOrbitWeaponSelected += HandleSpawnOrbitAttacks;
     }
 
-    private void HandleSpawnOrbitAttack()
+    private void HandleSpawnOrbitAttacks()
     {
-        playerAttack.SpawnOrbitAttack();
+        playerAttack.SpawnOrbitAttacks();
     }
 }

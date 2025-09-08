@@ -14,13 +14,13 @@ public class WeaponInitState : GameState
     // scan inventory for initializable weapons
     private void ScanInventory(GameStateManager gameStateManager)
     {
-        Debug.Log("Trigger scan inventory");
+        // Debug.Log("Trigger scan inventory");
         SlotClass[] itemDB = gameStateManager.InventoryManager.ItemDB;
         for (int i = 0; i < itemDB.Length; i++)
         {
             if (itemDB[i] == null)
             {
-                // exit the loop if met a null item slot
+                // exit the loop if meet a null item slot
                 break;
             }
 
@@ -31,12 +31,12 @@ public class WeaponInitState : GameState
                 if (itemDB[i].GetItem().NewWeaponAdded && itemDB[i].GetItem().ProjectilePattern == ItemScriptableObject.BulletPattern.Orbit)
                 {
                     EventManager.TriggerSpawnOrbitAttack();
-                    Debug.Log("Event TriggerSpawnOrbitAttack executed");
+                    // Debug.Log("Event TriggerSpawnOrbitAttack executed");
                 }
             }
         }
 
-        Debug.Log("Scanning completed");
+        // Debug.Log("Scanning completed");
         GameStateManager.Instance.ChangeState(new CombatState());
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    protected float bulletTimeout = 8.0f;
+    // protected float bulletTimeout = 8.0f;
 
     [SerializeField] private WeaponClass weaponClass;
     public WeaponClass WeaponClass => weaponClass;
@@ -14,10 +14,10 @@ public class Bullet : MonoBehaviour
         this.gameObject.transform.position = spawnPosition;
     }
 
-    protected virtual void OnEnable()
-    {
-        Invoke(nameof(TriggerReturnToPool), bulletTimeout);
-    }
+    // protected virtual void OnEnable()
+    // {
+    //     Invoke(nameof(TriggerReturnToPool), bulletTimeout);
+    // }
 
     protected virtual void TriggerReturnToPool()
     {

@@ -38,12 +38,30 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
+    [SerializeField] private int bulletSpeedMultiplier;
+    public float BulletSpeedMultiplier
+    {
+        get
+        {
+            return bulletSpeedMultiplier;
+        }
+    }
+
     [SerializeField] private float projectileAngle;
     public float ProjectileAngle
     {
         get
         {
             return projectileAngle;
+        }
+    }
+
+    [SerializeField] private float projectileRadius;
+    public float ProjectileRadius
+    {
+        get
+        {
+            return projectileRadius;
         }
     }
 

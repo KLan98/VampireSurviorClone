@@ -7,14 +7,14 @@ using UnityEngine;
 public class AttackScheduler
 {
 	// A registry that knows how to spawn bullets for each type of weapon
-	private readonly IBulletSpawnerRegistry spawners;
+	private IBulletSpawnerRegistry spawners;
 
 	// Provides the time difference between frames (DeltaTime)
-	private readonly ITimeProvider time;
+	private ITimeProvider time;
 
 	// Keeps track of cooldown time for each weapon by name
 	// Key = weapon name (string), Value = time passed since last shot (float)
-	private readonly Dictionary<string, float> cooldownElapsed = new Dictionary<string, float>();
+	private Dictionary<string, float> cooldownElapsed = new Dictionary<string, float>();
 
 	// Constructor: we pass in the spawner system and the time provider
 	public AttackScheduler(IBulletSpawnerRegistry spawners, ITimeProvider time)

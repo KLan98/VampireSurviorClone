@@ -19,14 +19,16 @@ public class PlayerAttack
         this.timeProvider = timeProvider;
     }
 
-    // Spawn attack through scheduler 
+    // Spawn attacks through scheduler 
     public void SpawnScheduledAttacks()
     {
         scheduler.UpdateWeaponFiring(playerControl.inventoryManager.ItemDB, playerControl.transform.position);
     }
 
-    public void SpawnOrbitAttack()
+    // Spawn orbit attacks based on init pivot
+    public void SpawnOrbitAttacks()
     {
-        orbitAttackInit.OrbitAttackSpawnPositionOffset(playerControl.inventoryManager.ItemDB, playerControl.transform.position);
+        orbitAttackInit.OrbitAttackSetInitPivot(playerControl.inventoryManager.ItemDB, playerControl.transform.position);
+        // Debug.Log("SpawnOrbitAttacks method executed");
     }
 }

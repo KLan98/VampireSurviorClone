@@ -9,7 +9,7 @@ public class SichelBulletPool : BulletSpawner<Sichel>
 
     protected override int PoolSize()
     {
-        return 100;
+        return 10;
     }
 
     protected override Sichel BulletPrefab()

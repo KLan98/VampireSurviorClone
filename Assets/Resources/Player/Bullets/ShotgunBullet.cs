@@ -26,7 +26,7 @@ public class ShotgunBullet : Bullet
         base.TriggerReturnToPool();
     }
 
-    private void Awake()
+    private void Start()
     {
         BehaviorKnockbackBullet = new BehaviorKnockbackBullet(this);
         BehaviorHomingBullet = new BehaviorHomingBullet(this);
