@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [Header("Components")]
     public Rigidbody2D rb;
     public PlayerControl playerControl;
+    [SerializeField] private EnemyStats enemyStats;
     //[SerializeField] private Enemy enemy;
 
     private void Awake()
@@ -21,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
         stateMachine = new EnemyStateMachine();
 
-        enemyMoveState = new EnemyMoveState(stateMachine, this);
+        enemyMoveState = new EnemyMoveState(stateMachine, this, enemyStats);
         enemyDieState = new EnemyDieState(stateMachine, this);
         enemyKnockedBackState = new EnemyKnockedBackState(stateMachine, this);
 

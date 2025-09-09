@@ -5,7 +5,7 @@ using UnityEngine;
 public class BehaviorKnockbackBullet : IKnockbackBullet
 {
     private Bullet bullet;
-    private float knockbackForce = 1.5f;
+    private float knockbackForce = 1.2f;
 
     public BehaviorKnockbackBullet(Bullet bullet)
     {

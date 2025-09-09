@@ -6,11 +6,11 @@ public class EnemyMoveState : EnemyState
 {
     private bool isDead;
     private Vector2 forceDirection;
-    private float moveSpeed = 2.0f;
+    private EnemyStats enemyStats;
 
-    public EnemyMoveState(EnemyStateMachine stateMachine, EnemyController enemyController) : base(stateMachine, enemyController)
+    public EnemyMoveState(EnemyStateMachine stateMachine, EnemyController enemyController, EnemyStats enemyStats) : base(stateMachine, enemyController)
     {
-
+        this.enemyStats = enemyStats;
     }
 
     public override void LogicUpdate()
@@ -30,7 +30,7 @@ public class EnemyMoveState : EnemyState
 
         forceDirection = (playerPosition - enemyPosition).normalized;
 
-        enemyController.rb.velocity = forceDirection * moveSpeed;
+        enemyController.rb.velocity = forceDirection * enemyStats.MovementSpeed;
 
         //Debug.Log($"{enemyController.gameObject} has force direction of {forceDirection}");
     }

@@ -7,11 +7,11 @@ public class Move : State
     private bool isIdling;
     private Vector2 forceDirection;
     private Vector2 inputDirection;
-    private float moveSpeed = 4f;
+    private PlayerStats playerStats;
 
-    public Move(StateMachine stateMachine, PlayerControl playerControl) : base(stateMachine, playerControl)
+    public Move(StateMachine stateMachine, PlayerControl playerControl, PlayerStats playerStats) : base(stateMachine, playerControl)
     {
-
+        this.playerStats = playerStats;
     }
 
     public override void LogicUpdate()
@@ -71,7 +71,7 @@ public class Move : State
 
     public override void PhysicsUpdate()
     {
-        playerControl.rb.velocity = forceDirection * moveSpeed;
+        playerControl.rb.velocity = forceDirection * playerStats.MovementSpeed;
         //Debug.Log(playerControl.rb.velocity.magnitude);
     }
 
