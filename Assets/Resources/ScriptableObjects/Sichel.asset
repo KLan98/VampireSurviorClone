@@ -17,9 +17,8 @@ MonoBehaviour:
   coolDownTime: 0
   initDamage: 1
   level: 1
-  numberOfProjectiles: 3
-  bulletSpeed: 5
+  numberOfProjectiles: 10
+  bulletSpeed: 3.8
   bulletSpeedMultiplier: 1
-  projectileAngle: 0
   projectileRadius: 3
   ProjectilePattern: 1
