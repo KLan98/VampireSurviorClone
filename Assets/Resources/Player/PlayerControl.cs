@@ -21,13 +21,14 @@ public class PlayerControl : MonoBehaviour
     public Camera playerCamera;
     public InventoryManager inventoryManager;
     public PlayerAttackRange playerAttackRange;
+    [SerializeField] private PlayerStats playerStats;
 
     private void Awake()
     {
         // create new instances
         stateMachine = new StateMachine();
         idleState = new Idle(stateMachine, this);
-        moveState = new Move(stateMachine, this);
+        moveState = new Move(stateMachine, this, playerStats);
         playerInput = new PlayerInputActions();
 
         // create new instances for player attack
