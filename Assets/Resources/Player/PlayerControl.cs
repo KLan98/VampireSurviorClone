@@ -22,6 +22,7 @@ public class PlayerControl : MonoBehaviour
     public InventoryManager inventoryManager;
     public PlayerAttackRange playerAttackRange;
     [SerializeField] private PlayerStats playerStats;
+    public SpriteRenderer playerSprite;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class PlayerControl : MonoBehaviour
         LoadRigidBody();
         LoadAnimator();
         LoadPlayerAttackRange();
+        LoadPlayerSprite();
     }
 
     private void Start()
@@ -93,5 +95,10 @@ public class PlayerControl : MonoBehaviour
     private void HandleSpawnOrbitAttacks()
     {
         playerAttack.SpawnOrbitAttacks();
+    }
+
+    private void LoadPlayerSprite()
+    {
+        playerSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 }

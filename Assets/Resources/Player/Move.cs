@@ -77,16 +77,19 @@ public class Move : State
 
     public override void SpriteUpdate()
     {
-        SpriteRenderer playerSprite = playerControl.GetComponent<SpriteRenderer>();
+        if (playerControl.playerSprite == null)
+        {
+            return;
+        }
 
         if (forceDirection.x < 0)
         {
-            playerSprite.flipX = true;
+            playerControl.playerSprite.flipX = true;
         }
 
         else
         {
-            playerSprite.flipX = false;
+            playerControl.playerSprite.flipX = false;
         }
     }
 }

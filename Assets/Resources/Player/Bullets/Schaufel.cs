@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class Schaufel : Bullet
 {
-    public IDefaultBehavior defaultBehavior;
+    [SerializeField] private PlayerControl playerControl;
+
+    private IDefaultBehavior defaultBehavior;
+    private IFlyInDirectionOfPlayer schaufelBehavior;
+    Vector2 direction;
 
     private void Start()
     {
         defaultBehavior = new BehaviorDefault(this);
+        schaufelBehavior = new BehaviorFlyInDirectionOfPlayer(this, playerControl);
+        direction = schaufelBehavior.GetBulletDirection();
+        schaufelBehavior.FlipBulletSprite(schaufelBehavior.GetPlayerDirection());
     }
 
     private void FixedUpdate()
     {
-        defaultBehavior.FlyStraight();
+        defaultBehavior.FlyStraight(direction);
     }
 
     protected override void TriggerReturnToPool()

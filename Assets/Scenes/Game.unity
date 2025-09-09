@@ -2860,6 +2860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponClass: {fileID: 11400000, guid: e68d212b47d04ac4c9917672e5d5f76d, type: 2}
+  bulletSprite: {fileID: 0}
 --- !u!1 &1210471024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +2990,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 1089780613}
   playerAttackRange: {fileID: 0}
   playerStats: {fileID: 11400000, guid: a659c6ede555903449e1d0e599b52ab2, type: 2}
+  playerSprite: {fileID: 0}
 --- !u!95 &1210471029
 Animator:
   serializedVersion: 7
@@ -3091,13 +3093,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245944309}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.238, y: 1.586, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1325948013}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &1245944311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3165,6 +3167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponClass: {fileID: 11400000, guid: 5fb05730f49c2f34c9259bfc660c4ba2, type: 2}
+  bulletSprite: {fileID: 0}
+  playerControl: {fileID: 1210471028}
 --- !u!1 &1274439100
 GameObject:
   m_ObjectHideFlags: 0
