@@ -8,7 +8,7 @@ public class Schaufel : Bullet
 
     private IDefaultBehavior defaultBehavior;
     private IFlyInDirectionOfPlayer schaufelBehavior;
-    Vector2 direction;
+    private Vector2 direction;
 
     private void Start()
     {
