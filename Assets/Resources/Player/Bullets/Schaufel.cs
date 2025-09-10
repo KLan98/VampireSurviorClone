@@ -28,4 +28,19 @@ public class Schaufel : Bullet
         SchaufelBulletPool.Instance.ReturnToPool(this);
         base.TriggerReturnToPool();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+
+        if (enemyController != null)
+        {
+            TriggerReturnToPool();
+        }
+
+        else
+        {
+            return;
+        }
+    }
 }

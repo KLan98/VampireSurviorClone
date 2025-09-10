@@ -38,9 +38,6 @@ public class ShotgunBullet : Bullet
             enemyController.stateMachine.ChangeState(enemyController.enemyKnockedBackState);
             BehaviorKnockbackBullet.KnockbackEnemy(collision.gameObject);
             TriggerReturnToPool();
-
-            //enemyController.stateMachine.ChangeState(e)
-            //Debug.Log($"{this} hits {collision.transform.gameObject}");
         }
 
         else

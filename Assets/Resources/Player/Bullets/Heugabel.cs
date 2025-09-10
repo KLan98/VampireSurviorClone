@@ -21,4 +21,19 @@ public class Heugabel : Bullet
         HeugabelBulletPool.Instance.ReturnToPool(this);
         base.TriggerReturnToPool();
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        EnemyController enemyController = collider.gameObject.GetComponent<EnemyController>();
+
+        if (enemyController != null)
+        {
+            Debug.Log($"{this} hits {enemyController}");
+        }
+
+        else
+        {
+            return;
+        }
+    }
 }
