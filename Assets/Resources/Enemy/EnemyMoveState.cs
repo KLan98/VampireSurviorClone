@@ -41,17 +41,15 @@ public class EnemyMoveState : EnemyState
 
         Vector2 playerPosition = enemyController.playerControl.transform.position;
 
-        SpriteRenderer enemySprite = enemyController.GetComponent<SpriteRenderer>();
-
         if (playerPosition.x < enemyPosition.x)
         {
             // Player is on the left
-            enemySprite.flipX = true;
+            enemyController.enemySprite.flipX = true;
         }
         else
         {
             // Player is on the right
-            enemySprite.flipX = false;
+            enemyController.enemySprite.flipX = false;
         }
     }
 }

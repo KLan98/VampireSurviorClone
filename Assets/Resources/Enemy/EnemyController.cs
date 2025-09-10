@@ -13,12 +13,13 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerControl playerControl;
     [SerializeField] private EnemyStats enemyStats;
-    //[SerializeField] private Enemy enemy;
+    public SpriteRenderer enemySprite;
 
     private void Awake()
     {
         //LoadEnemyComponent();
         LoadRigidBody();
+        LoadEnemySprite();
 
         stateMachine = new EnemyStateMachine();
 
@@ -53,5 +54,10 @@ public class EnemyController : MonoBehaviour
     private void LoadRigidBody()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    private void LoadEnemySprite()
+    {
+        enemySprite = gameObject.GetComponent<SpriteRenderer>();
     }
 }
