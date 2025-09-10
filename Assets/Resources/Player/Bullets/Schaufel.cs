@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Schaufel : Bullet
+public class Schaufel : BulletWithTimeout
 {
     [SerializeField] private PlayerControl playerControl;
 
     private IDefaultBehavior defaultBehavior;
     private IFlyInDirectionOfPlayer schaufelBehavior;
-    Vector2 direction;
+    private Vector2 direction;
 
     private void Start()
     {
@@ -27,5 +27,20 @@ public class Schaufel : Bullet
     {
         SchaufelBulletPool.Instance.ReturnToPool(this);
         base.TriggerReturnToPool();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+
+        if (enemyController != null)
+        {
+            TriggerReturnToPool();
+        }
+
+        else
+        {
+            return;
+        }
     }
 }

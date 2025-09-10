@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heugabel : Bullet
+public class Heugabel : BulletWithTimeout
 {
     private IDefaultBehavior DefaultBehavior;
 
@@ -20,5 +20,20 @@ public class Heugabel : Bullet
     {
         HeugabelBulletPool.Instance.ReturnToPool(this);
         base.TriggerReturnToPool();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        EnemyController enemyController = collider.gameObject.GetComponent<EnemyController>();
+
+        if (enemyController != null)
+        {
+            Debug.Log($"{this} hits {enemyController}");
+        }
+
+        else
+        {
+            return;
+        }
     }
 }
