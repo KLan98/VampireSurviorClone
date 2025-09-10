@@ -7,5 +7,7 @@ public class CombatState : GameState
     public override void Enter(GameStateManager gameStateManager)
     {
         base.Enter(gameStateManager);
+
+        UIManager.Instance.playerHealthBarUI.SetActive(true);
     }
 }
