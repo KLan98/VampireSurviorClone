@@ -10,5 +10,5 @@ public interface IDefaultBehavior
     /// <summary>
     /// Fly in the direction of Vector2.up
     /// </summary>
-    public void FlyStraight();
+    public void FlyStraight(Vector2 direction);
 }

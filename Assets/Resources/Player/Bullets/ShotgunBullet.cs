@@ -51,6 +51,6 @@ public class ShotgunBullet : Bullet
 
     private void FixedUpdate()
     {
-        DefaultBehavior.FlyStraight();
+        DefaultBehavior.FlyStraight(Vector2.up);
     }
 }

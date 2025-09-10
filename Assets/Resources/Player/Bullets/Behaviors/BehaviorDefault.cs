@@ -11,8 +11,8 @@ public class BehaviorDefault : IDefaultBehavior
         this.bullet = bullet;
     }
 
-    public void FlyStraight()
+    public void FlyStraight(Vector2 direction)
     {
-        bullet.transform.Translate(Vector2.up * bullet.WeaponClass.BulletSpeed * Time.deltaTime);
+        bullet.transform.Translate(direction * bullet.WeaponClass.BulletSpeed * Time.deltaTime);
     }
 }
