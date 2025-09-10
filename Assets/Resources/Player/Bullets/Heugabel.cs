@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heugabel : Bullet
+public class Heugabel : BulletWithTimeout
 {
     private IDefaultBehavior DefaultBehavior;
 

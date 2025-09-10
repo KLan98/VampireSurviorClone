@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Schaufel : Bullet
+public class Schaufel : BulletWithTimeout
 {
     [SerializeField] private PlayerControl playerControl;
 

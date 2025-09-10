@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Behavior of shotgun bullet
 /// </summary>
-public class ShotgunBullet : Bullet
+public class ShotgunBullet : BulletWithTimeout
 {
     [SerializeField] private PlayerControl playerControl;
     [SerializeField] private GameObject nearestEnemy;
