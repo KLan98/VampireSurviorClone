@@ -8,6 +8,6 @@ public class CombatState : GameState
     {
         base.Enter(gameStateManager);
 
-        UIManager.Instance.playerHealthBarUI.SetActive(true);
+        UIManager.Instance.playerHealthBarCanvasUI.SetActive(true);
     }
 }
