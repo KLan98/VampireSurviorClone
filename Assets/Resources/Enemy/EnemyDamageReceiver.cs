@@ -4,15 +4,61 @@ using UnityEngine;
 
 public class EnemyDamageReceiver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // components
+    private EnemyDamageCalculator damageCalculator;
+    [SerializeField] private EnemyStats enemyStats;
+
+    // properties
+    public int CurrentHealth
     {
-        
+        get
+        {
+            return currentHealth;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public int MaxHealth
     {
-        
+        get
+        {
+            return enemyStats.MaxHealth;
+        }
+    }
+    
+    // private fields
+    [SerializeField] private int currentHealth;
+
+    private void Start()
+    {
+        damageCalculator = new EnemyDamageCalculator(enemyStats);
+
+        // init stats
+        currentHealth = enemyStats.MaxHealth;
+        // Debug.Log($"Enemy init health = {currentHealth}, with max health stat = {enemyStats.MaxHealth}");  
+    }
+
+    public EnemyDamageReceiver(EnemyStats enemyStats)
+    {
+        this.enemyStats = enemyStats;
+    }
+
+    public void EnemyGotHitBy(Bullet bullet)
+    {
+        int bulletDamage = bullet.WeaponClass.InitDamage;
+
+        currentHealth = currentHealth - damageCalculator.DamageDealtToEnemy(bulletDamage);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.GetComponent<Bullet>())
+        {
+            Bullet bullet = collider.GetComponent<Bullet>();
+
+            EnemyGotHitBy(bullet);
+
+            Debug.Log($"{this.gameObject.transform.parent.name} current health = {currentHealth}");
+            Debug.Log($"{this.name} got hit by {bullet}");
+        }
     }
 }
