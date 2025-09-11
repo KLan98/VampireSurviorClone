@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   movementSpeed: 3.6
-  maxHealth: 0
-  damageReductionPercentage: 0
+  maxHealth: 100
+  damageReductionPercentage: 0.1

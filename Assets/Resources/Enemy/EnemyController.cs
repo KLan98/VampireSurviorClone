@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     [Header("Components")]
     public Rigidbody2D rb;
     public PlayerControl playerControl;
-    [SerializeField] private EnemyStats enemyStats;
+    public EnemyStats enemyStats;
     public SpriteRenderer enemySprite;
 
     private void Awake()

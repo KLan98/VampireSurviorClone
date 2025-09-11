@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   movementSpeed: 3
-  maxHealth: 0
+  maxHealth: 10
+  damage: 2

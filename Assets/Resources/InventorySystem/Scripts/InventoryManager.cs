@@ -110,7 +110,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Display the weapons from itemDB to UI
     /// </summary>
