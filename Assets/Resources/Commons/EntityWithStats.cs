@@ -14,7 +14,7 @@ public class EntityWithStats : ScriptableObject
     }
 
     [SerializeField] private int maxHealth;
-    public int HaxHealth
+    public int MaxHealth
     {
         get
         {
