@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenuUI_slotGameObject;
 
     [Header("Player health bar")]
-    public GameObject playerHealthBarUI;
+    public GameObject playerHealthBarCanvasUI;
 
     private void Awake()
     {
