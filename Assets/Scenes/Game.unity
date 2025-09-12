@@ -1011,6 +1011,7 @@ MonoBehaviour:
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: 716bff6645e0a194287b5741d0ac121a, type: 2}
   enemySprite: {fileID: 0}
+  damageReceiver: {fileID: 0}
 --- !u!50 &282973363
 Rigidbody2D:
   serializedVersion: 4
@@ -2413,6 +2414,7 @@ MonoBehaviour:
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: 831c293e55db0af40b420557557f9f31, type: 2}
   enemySprite: {fileID: 0}
+  damageReceiver: {fileID: 0}
 --- !u!212 &892930864
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4159,6 +4161,7 @@ MonoBehaviour:
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: f69fef55f06414a4ba1a520ee452330e, type: 2}
   enemySprite: {fileID: 0}
+  damageReceiver: {fileID: 0}
 --- !u!50 &1548419631
 Rigidbody2D:
   serializedVersion: 4
@@ -4714,6 +4717,7 @@ MonoBehaviour:
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: a72b895896d770442ad53491202d85b2, type: 2}
   enemySprite: {fileID: 0}
+  damageReceiver: {fileID: 0}
 --- !u!50 &1662547067
 Rigidbody2D:
   serializedVersion: 4

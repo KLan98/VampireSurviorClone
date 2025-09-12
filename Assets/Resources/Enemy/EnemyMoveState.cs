@@ -52,4 +52,17 @@ public class EnemyMoveState : EnemyState
             enemyController.enemySprite.flipX = false;
         }
     }
+
+    public override void BoolUpdate()
+    {
+        if (enemyController.damageReceiver.CurrentHealth <= 0)
+        {
+            isDead = true;
+        }
+
+        else
+        {
+            isDead = false;
+        }
+    }
 }

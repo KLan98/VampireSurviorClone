@@ -14,12 +14,14 @@ public class EnemyController : MonoBehaviour
     public PlayerControl playerControl;
     public EnemyStats enemyStats;
     public SpriteRenderer enemySprite;
+    public EnemyDamageReceiver damageReceiver;
 
     private void Awake()
     {
         //LoadEnemyComponent();
         LoadRigidBody();
         LoadEnemySprite();
+        LoadEnemyDamageReceiver();
 
         stateMachine = new EnemyStateMachine();
 
@@ -59,5 +61,10 @@ public class EnemyController : MonoBehaviour
     private void LoadEnemySprite()
     {
         enemySprite = gameObject.GetComponent<SpriteRenderer>();
+    }
+
+    private void LoadEnemyDamageReceiver()
+    {
+        damageReceiver = gameObject.GetComponentInChildren<EnemyDamageReceiver>();
     }
 }

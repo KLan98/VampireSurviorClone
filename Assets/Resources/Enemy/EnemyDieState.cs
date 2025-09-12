@@ -9,14 +9,9 @@ public class EnemyDieState : EnemyState
 
     }
 
-    public override void LogicUpdate()
+    public override void Enter()
     {
-        
-    }
-
-    public override void PhysicsUpdate()
-    {
-        // destroy this gameobject and return it to enemy pool 
+        Debug.Log("Enemy died");
     }
 
     private void PlayDeathAnimation()
