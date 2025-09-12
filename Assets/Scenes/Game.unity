@@ -1007,6 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e73bbd09c4de845a3f5b9488a76c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   rb: {fileID: 0}
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: 716bff6645e0a194287b5741d0ac121a, type: 2}
@@ -2410,6 +2411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e73bbd09c4de845a3f5b9488a76c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   rb: {fileID: 0}
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: 831c293e55db0af40b420557557f9f31, type: 2}
@@ -4157,6 +4159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e73bbd09c4de845a3f5b9488a76c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   rb: {fileID: 0}
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: f69fef55f06414a4ba1a520ee452330e, type: 2}
@@ -4713,6 +4716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e73bbd09c4de845a3f5b9488a76c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   rb: {fileID: 0}
   playerControl: {fileID: 1210471028}
   enemyStats: {fileID: 11400000, guid: a72b895896d770442ad53491202d85b2, type: 2}

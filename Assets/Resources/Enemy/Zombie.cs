@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Zombie : Enemy
 {
-    protected override void TriggerReturnToPool()
+    public override void TriggerReturnToPool()
     {
         ZombiePool.Instance.ReturnToPool(this);
     }

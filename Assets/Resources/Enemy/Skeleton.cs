@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Skeleton : Enemy
 {
-    protected override void TriggerReturnToPool()
+    public override void TriggerReturnToPool()
     {
         SkeletonPool.Instance.ReturnToPool(this);
     }

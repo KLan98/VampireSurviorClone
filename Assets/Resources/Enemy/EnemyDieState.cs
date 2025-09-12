@@ -11,7 +11,12 @@ public class EnemyDieState : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("Enemy died");
+        Enemy dieEnemy = enemyController.enemy;
+
+        if (dieEnemy != null)
+        {
+            dieEnemy.TriggerReturnToPool();
+        }
     }
 
     private void PlayDeathAnimation()

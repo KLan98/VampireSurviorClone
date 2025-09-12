@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public EnemyKnockedBackState enemyKnockedBackState;
     
     [Header("Components")]
+    public Enemy enemy;
     public Rigidbody2D rb;
     public PlayerControl playerControl;
     public EnemyStats enemyStats;
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         //LoadEnemyComponent();
+        LoadEnemy();
         LoadRigidBody();
         LoadEnemySprite();
         LoadEnemyDamageReceiver();
@@ -56,6 +58,11 @@ public class EnemyController : MonoBehaviour
     private void LoadRigidBody()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    private void LoadEnemy()
+    {
+        enemy = gameObject.GetComponent<Enemy>();
     }
 
     private void LoadEnemySprite()
