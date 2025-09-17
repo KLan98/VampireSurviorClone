@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverState : MonoBehaviour
+public class GameOverState : GameState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Enter(GameStateManager gameStateManager)
     {
-        
+        base.Enter(gameStateManager);        
+
+        // turn on game over screen
+        Debug.Log("Game over screen");
+        UIManager.Instance.gameOverScreen.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Exit()
     {
-        
+
+    }
+
+    public override void StateBehaviorUpdate()
+    {
+        base.StateBehaviorUpdate();
+
+        Time.timeScale = 0f;
     }
 }

@@ -49,4 +49,9 @@ public class GameStateManager : MonoBehaviour
         GameObject parent = gameObject.transform.parent.gameObject;
         inventoryManager = parent.GetComponentInChildren<InventoryManager>();
     }
+
+    public GameState GetCurrentGameState()
+    {
+        return currentState;
+    }
 }

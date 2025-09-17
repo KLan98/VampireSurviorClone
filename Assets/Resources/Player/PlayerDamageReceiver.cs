@@ -8,6 +8,7 @@ public class PlayerDamageReceiver : MonoBehaviour
     // components
     private DamageCalculator damageCalculator;
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private PlayerControl playerControl;
 
     // properties
     public int CurrentHealth
@@ -38,6 +39,8 @@ public class PlayerDamageReceiver : MonoBehaviour
         // init stats
         currentHealth = playerStats.MaxHealth;
         // Debug.Log($"Player init health = {currentHealth}, with max health stat = {playerStats.MaxHealth}");  
+
+        LoadPlayerController();
     }
 
     private void Awake()
@@ -45,7 +48,7 @@ public class PlayerDamageReceiver : MonoBehaviour
         // init physics update counter
         maxCounter = 5;
         counter = maxCounter;
-        // Debug.Log($"[{gameObject.name}] Init value of counter = {counter}, maxCounter = {maxCounter}");  
+        // Debug.Log($"[{gameObject.name}] Init value of counter = {counter}, maxCounter = {maxCounter}");
     }
 
     public PlayerDamageReceiver(PlayerStats playerStats)
@@ -57,6 +60,12 @@ public class PlayerDamageReceiver : MonoBehaviour
     {
         int enemyDamage = enemyController.enemyStats.Damage;
         currentHealth = currentHealth - damageCalculator.DamageDealtToPlayer(enemyDamage);
+
+        if (currentHealth <= 0)
+        {
+            // Debug.Log($"Player current health is {currentHealth}");
+            playerControl.stateMachine.ChangeState(playerControl.dieState);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collider)
@@ -76,5 +85,10 @@ public class PlayerDamageReceiver : MonoBehaviour
                 counter = maxCounter;
             }
         }
+    }
+
+    private void LoadPlayerController()
+    {
+        playerControl = gameObject.transform.parent.GetComponent<PlayerControl>();
     }
 }
