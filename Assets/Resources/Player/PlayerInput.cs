@@ -88,7 +88,13 @@ public class PlayerInput : MonoBehaviour
         //Debug.Log("Escape pressed");
 
         // Don't allow switching state when the chooseWeaponMenu is active
-        if (chooseWeaponMenu.gameObject.activeInHierarchy == true)
+        if (UIManager.Instance.weaponSelectionUI.activeInHierarchy == true)
+        {
+            return;
+        }
+
+        // Don't allow switching state when the game over screen is active
+        if (UIManager.Instance.gameOverScreen.activeInHierarchy == true)
         {
             return;
         }

@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     [Header("Player health bar")]
     public GameObject playerHealthBarCanvasUI;
 
+    [Header("Game over screen")]
+    public GameObject gameOverScreen;
+
     private void Awake()
     {
         Instance = this;

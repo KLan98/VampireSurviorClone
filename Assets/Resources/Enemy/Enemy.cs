@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //private Rigidbody2D rb;
-
-    //private void Awake()
-    //{
-    //    rb = gameObject.GetComponent<Rigidbody2D>();
-    //}
-
     public void InitPosition(Vector2 spawnPosition)
     {
         //Debug.Log($"Parameter spawnPosition = {spawnPosition}");
@@ -18,7 +11,7 @@ public class Enemy : MonoBehaviour
         //Debug.Log($"Game object {this} spawned at {rb.position}");
     }
 
-    protected virtual void TriggerReturnToPool()
+    public virtual void TriggerReturnToPool()
     {
         Debug.Log($"{this} returned to pool");
     }

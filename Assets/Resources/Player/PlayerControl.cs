@@ -21,6 +21,7 @@ public class PlayerControl : MonoBehaviour
     public Camera playerCamera;
     public InventoryManager inventoryManager;
     public PlayerAttackRange playerAttackRange;
+    public PlayerDieState dieState;
     [SerializeField] private PlayerStats playerStats;
     public SpriteRenderer playerSprite;
 
@@ -30,6 +31,7 @@ public class PlayerControl : MonoBehaviour
         stateMachine = new StateMachine();
         idleState = new Idle(stateMachine, this);
         moveState = new Move(stateMachine, this, playerStats);
+        dieState = new PlayerDieState(stateMachine, this);
         playerInput = new PlayerInputActions();
 
         // create new instances for player attack
