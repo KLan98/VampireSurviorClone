@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Shotgun
   itemSprite: {fileID: 21300000, guid: e845e83817407e041b50f77310d1c986, type: 2}
-  coolDownTime: 1.5
+  coolDownTime: 2
   initDamage: 3
   level: 1
   numberOfProjectiles: 1

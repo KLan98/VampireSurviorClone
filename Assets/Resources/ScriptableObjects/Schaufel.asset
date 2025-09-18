@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Schaufel
   itemSprite: {fileID: 21300000, guid: 4fb35653f86c0bc44ac3de1c0992bd7b, type: 2}
   coolDownTime: 1.2
-  initDamage: 1
+  initDamage: 10
   level: 1
   numberOfProjectiles: 1
   bulletSpeed: 7
