@@ -58,7 +58,6 @@ public class EnemyDamageReceiver : MonoBehaviour
             EnemyGotHitBy(bullet);
 
             Debug.Log($"{this.gameObject.transform.parent.name} current health = {currentHealth}");
-            Debug.Log($"{this.name} got hit by {bullet}");
         }
     }
 }

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [Header("Components")]
-    private Slider slider;
     [SerializeField] private PlayerDamageReceiver damageReceiver;
+    private Slider slider;
     
     // private fields
     private int counter;
@@ -45,7 +45,7 @@ public class HealthBar : MonoBehaviour
         // Debug.Log($"Slider value = {slider.value}");
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         counter = counter - 1;
         if (counter <= 0)
