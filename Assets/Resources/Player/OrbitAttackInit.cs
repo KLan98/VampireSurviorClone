@@ -67,7 +67,7 @@ public class OrbitAttackInit
 
 						// Spawn the projectile at the given position
 						spawner.Spawn(spawnPos);
-						Debug.Log($"Bullet {weapon.ItemName} spawned at position {spawnPos}");
+						// Debug.Log($"Bullet {weapon.ItemName} spawned at position {spawnPos}");
 					}
 				}
             }

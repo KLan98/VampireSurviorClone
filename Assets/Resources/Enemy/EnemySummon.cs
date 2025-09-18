@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /// <summary>
@@ -8,40 +7,140 @@ using UnityEngine;
 /// </summary>
 public class EnemySummon : MonoBehaviour
 {
-    public float spawnInterval = 1f;
-    private float timer;
+    [Header("Wave Settings")]
+    [SerializeField] private WaveSet waveSet;
+    [SerializeField] private int maxAliveCap = 300; // max number of enemies alive spawned
+
+    private float gameTimeSeconds;
+    private float periodicSpawnTimer;
 
     private IEnemyPoolProvider enemyPoolProvider;
     private IEnemyPositionProvider enemyPositionProvider;
-    private ICameraProvider cameraProvider;
 
     private void Awake()
     {
         enemyPoolProvider = new GetRandomPool();
         enemyPositionProvider = new EnemyOffScreenPosition();
-        cameraProvider = new EnemyCameraProvider();
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
+        gameTimeSeconds += Time.deltaTime;
+        Wave currentWave = GetCurrentWave();
 
-        if (timer >= spawnInterval)
+        if (currentWave == null)
         {
-            SpawnEnemy();
-            timer = 0f;
+            return;
+        }
+
+        int enemiesAlive;
+        if (EnemyAliveTracker.Instance != null)
+        {
+            enemiesAlive = EnemyAliveTracker.Instance.AliveCount;
+        }
+        else
+        {
+            enemiesAlive = 0;
+        }
+
+        if (enemiesAlive >= maxAliveCap)
+        {
+            return;
+        }
+
+        if (enemiesAlive < currentWave.MinimumAliveThreshold)
+        {
+            SpawnUntilThreshold(currentWave, currentWave.MinimumAliveThreshold - enemiesAlive);
+            return;
+        }
+
+        periodicSpawnTimer += Time.deltaTime;
+        if (periodicSpawnTimer >= Mathf.Max(0.05f, currentWave.SpawnIntervalSeconds))
+        {
+            SpawnOneOfEach(currentWave);
+            periodicSpawnTimer = 0f;
         }
     }
 
-    // Working on revamping this feature
-    private void SpawnEnemy()
+    private Wave GetCurrentWave()
     {
-        var cam = cameraProvider.GetMainCamera();
-        var bounds = cameraProvider.GetScreenBounds();
-        var spawnPos = enemyPositionProvider.GetOffscreenPosition(bounds, cam.transform.position);
-        var pool = enemyPoolProvider.PickRandomPool();
+        if (waveSet == null || waveSet.Waves == null || waveSet.Waves.Count == 0)
+        {
+            return null;
+        }
+
+        int minuteIndex = Mathf.FloorToInt(gameTimeSeconds / 60f);
+        if (minuteIndex >= waveSet.Waves.Count)
+        {
+            minuteIndex = waveSet.Waves.Count - 1;
+        }
+        return waveSet.Waves[minuteIndex];
+    }
+
+    private void SpawnUntilThreshold(Wave wave, int toSpawn)
+    {
+        for (int i = 0; i < toSpawn; i++)
+        {
+            EnemyType type;
+            if (wave.enemyTypes.Count > 0)
+            {
+                type = wave.enemyTypes[i % wave.enemyTypes.Count];
+            }
+            else
+            {
+                type = EnemyType.Zombie;
+            }
+
+            SpawnEnemyOfType(type);
+        }
+    }
+
+    private void SpawnOneOfEach(Wave wave)
+    {
+        if (wave.enemyTypes == null || wave.enemyTypes.Count == 0)
+        {
+            return;
+        }
+
+        foreach (var type in wave.enemyTypes)
+        {
+            SpawnEnemyOfType(type);
+        }
+    }
+
+    private void SpawnEnemyOfType(EnemyType type)
+    {
+        Vector2 spawnPos = enemyPositionProvider.GetOffscreenPosition();
+
+        MonoBehaviour pool = GetPoolByType(type);
+        if (pool == null)
+        {
+            return;
+        }
 
         SpawnEnemyFromPool(pool, spawnPos);
+
+        if (EnemyAliveTracker.Instance != null)
+        {
+            EnemyAliveTracker.Instance.OnEnemySpawned();
+        }
+    }
+
+    private MonoBehaviour GetPoolByType(EnemyType type)
+    {
+        switch (type)
+        {
+            case EnemyType.Zombie:
+                return ZombiePool.Instance;
+            case EnemyType.Skeleton:
+                return SkeletonPool.Instance;
+            case EnemyType.Demon:
+                return DemonPool.Instance;
+            case EnemyType.Fiend:
+                return FiendPool.Instance;
+            default:
+                return null;
+        }
     }
 
     /// <summary>

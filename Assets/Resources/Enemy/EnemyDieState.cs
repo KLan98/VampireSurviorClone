@@ -16,6 +16,7 @@ public class EnemyDieState : EnemyState
         if (dieEnemy != null)
         {
             dieEnemy.TriggerReturnToPool();
+            EnemyAliveTracker.Instance.OnEnemyDespawned();
         }
     }
 

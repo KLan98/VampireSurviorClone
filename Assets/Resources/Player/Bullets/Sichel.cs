@@ -24,7 +24,7 @@ public class Sichel : Bullet
 
         if (enemyController != null)
         {
-            Debug.Log($"{this} hits {enemyController}");
+            // Debug.Log($"{this} hits {enemyController}");
         }
 
         else
