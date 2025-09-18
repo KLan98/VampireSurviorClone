@@ -22,13 +22,13 @@ public class BehaviorCirclingBullet : ICirclingBullet
 
         // Get initial offset from player
         Vector3 offset = bullet.transform.position - playerControl.transform.position;
-        Debug.Log($"Init offset = {offset}");
+        // Debug.Log($"Init offset = {offset}");
         orbitRadius = offset.magnitude;
 
         // Calculate starting angle from spawn position
         angle = Mathf.Atan2(offset.y, offset.x);
 
-        Debug.Log($"init angle = {angle}");
+        // Debug.Log($"init angle = {angle}");
     }
 
     public void OrbitAroundPlayer()

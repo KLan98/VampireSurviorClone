@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 475a02001d0eb7d41995c0c3d6f29a2f, type: 3}
-  m_Name: Schaufel
+  m_Name: ShotGun
   m_EditorClassIdentifier: 
-  itemName: Schaufel
-  itemSprite: {fileID: 21300000, guid: 4fb35653f86c0bc44ac3de1c0992bd7b, type: 2}
-  coolDownTime: 1.2
-  initDamage: 1
+  itemName: Shotgun
+  itemSprite: {fileID: 21300000, guid: e845e83817407e041b50f77310d1c986, type: 2}
+  coolDownTime: 2
+  initDamage: 10
   level: 1
   numberOfProjectiles: 1
-  bulletSpeed: 7
+  bulletSpeed: 8
   bulletSpeedMultiplier: 1
   projectileRadius: 0
   ProjectilePattern: 0

@@ -28,7 +28,7 @@ public class Heugabel : BulletWithTimeout
 
         if (enemyController != null)
         {
-            Debug.Log($"{this} hits {enemyController}");
+            // Debug.Log($"{this} hits {enemyController}");
         }
 
         else

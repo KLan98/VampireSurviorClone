@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 475a02001d0eb7d41995c0c3d6f29a2f, type: 3}
-  m_Name: Sichel
+  m_Name: Schaufel
   m_EditorClassIdentifier: 
-  itemName: Sichel
-  itemSprite: {fileID: 21300000, guid: 726d4af31f2337f46a130cf395017747, type: 2}
-  coolDownTime: 0
-  initDamage: 1
+  itemName: Schaufel
+  itemSprite: {fileID: 21300000, guid: 4fb35653f86c0bc44ac3de1c0992bd7b, type: 2}
+  coolDownTime: 0.8
+  initDamage: 5
   level: 1
   numberOfProjectiles: 1
-  bulletSpeed: 3.8
+  bulletSpeed: 7
   bulletSpeedMultiplier: 1
-  projectileRadius: 3
-  ProjectilePattern: 1
+  projectileRadius: 0
+  ProjectilePattern: 0

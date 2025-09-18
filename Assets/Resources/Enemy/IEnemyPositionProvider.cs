@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IEnemyPositionProvider 
 {
-    Vector2 GetOffscreenPosition(Vector2 bounds, Vector3 camPos);
+    Vector2 GetOffscreenPosition();
 }

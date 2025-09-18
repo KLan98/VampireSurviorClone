@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e869bfb20738b14dbbf0e28f4b8b88f, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 69272821f9439f444a62834b11ebebf4, type: 3}
+  m_Name: TestWave
   m_EditorClassIdentifier: 
-  movementSpeed: 3
-  maxHealth: 100
-  damageReductionPercentage: 0.1
+  waves:
+  - minimumAliveThreshold: 10
+    spawnIntervalSeconds: 1
+    enemyTypes: 00000000
+  - minimumAliveThreshold: 20
+    spawnIntervalSeconds: 1
+    enemyTypes: 0200000001000000
