@@ -42,6 +42,7 @@ public class ShotgunBullet : BulletWithTimeout
 
         else
         {
+            // Debug.Log("Enemy controller not found for ShotgunBullet");
             return;
         }
     }

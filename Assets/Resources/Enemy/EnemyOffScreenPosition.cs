@@ -9,13 +9,24 @@ public class EnemyOffScreenPosition : IEnemyPositionProvider
 
     public Vector2 GetOffscreenPosition()
     {
-        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)); // bottom-left corner of the screen in world space
-        Vector3 topRight   = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)); // top-right corner of the screen in world space
+        Vector3 viewPortBottomLeft = new Vector3(0, 0, Camera.main.nearClipPlane);
+        Vector3 worldPointBottomLeft = Camera.main.ViewportToWorldPoint(viewPortBottomLeft); // bottom-left corner of the screen in world space
+        // Debug.Log($"view port bottom left {viewPortBottomLeft}");
+        // Debug.Log($"world point bottom left {worldPointBottomLeft}");
 
-        float minX = bottomLeft.x - spawnPositionOffset;
-        float maxX = topRight.x + spawnPositionOffset;
-        float minY = bottomLeft.y - spawnPositionOffset;
-        float maxY = topRight.y + spawnPositionOffset;
+        Vector3 viewPortTopRight = new Vector3(1, 1, Camera.main.nearClipPlane);
+        Vector3 worldPointTopRight = Camera.main.ViewportToWorldPoint(viewPortTopRight); // top-right corner of the screen in world space
+        // Debug.Log($"view port top right {viewPortTopRight}");
+        // Debug.Log($"world point top right {worldPointTopRight}");
+
+        float minX = worldPointBottomLeft.x - spawnPositionOffset;
+        Debug.Log($"MinX {minX}");
+        float maxX = worldPointTopRight.x + spawnPositionOffset;
+        Debug.Log($"MaxX {maxX}");
+        float minY = worldPointBottomLeft.y - spawnPositionOffset;
+        Debug.Log($"MinY {minY}");
+        float maxY = worldPointTopRight.y + spawnPositionOffset;
+        Debug.Log($"MaxY {maxY}");
 
         int side = Random.Range(0, 4); // 0 = Top, 1 = Bottom, 2 = Left, 3 = Right
         //Debug.Log($"Spawn side = {side}");
