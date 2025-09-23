@@ -13,7 +13,7 @@ public class TimerBar : MonoBehaviour
 
     [Header("Timer bar fields")]
     [SerializeField] private float timeInSecond; // real time in second
-    private float startTime = 120f; // level starts at 2 minutes = 120 second
+    private float startTime = 1200f; // level starts at 20 minutes = 1200 second
     private float sliderInitValue = 1f;
     private float interpolationValue;
 
