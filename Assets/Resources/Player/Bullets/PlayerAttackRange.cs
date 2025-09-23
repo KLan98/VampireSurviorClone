@@ -5,16 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerAttackRange : MonoBehaviour
 {
-    private BoxCollider2D box;
+    private BoxCollider2D attackRange;
+    private float playerAttackRangeWidth;
+    private float playerAttackRangeHeight;
     private float placeHolderMinDistance = 100;
 
-    [SerializeField] private List<GameObject> inRangeEnemies;
-    public List<GameObject> InRangeEnemies => inRangeEnemies;
-    public GameObject nearestEnemy;
+    [SerializeField] private List<EnemyController> inRangeEnemies;
+    public List<EnemyController> InRangeEnemies => inRangeEnemies;
+    public EnemyController nearestEnemy;
 
     private void Awake()
     {
-        box = GetComponent<BoxCollider2D>();
+        LoadBoxCollider();
+
+        Vector3 viewPortTopRight = new Vector3(1, 1, Camera.main.nearClipPlane);
+        Vector3 worldPointTopRight = Camera.main.ViewportToWorldPoint(viewPortTopRight); // top-right corner of the 
+        Debug.Log($"world point top right {worldPointTopRight}");
+
+        playerAttackRangeHeight = 2 * Mathf.Abs(worldPointTopRight.y);
+        playerAttackRangeWidth = 2 * Mathf.Abs(worldPointTopRight.x);
+
+        attackRange.size = new Vector2(playerAttackRangeWidth, playerAttackRangeHeight);
     }
 
     private void FixedUpdate()
@@ -22,31 +33,28 @@ public class PlayerAttackRange : MonoBehaviour
         GetNearestEnemy();
     }
 
-    private void LateUpdate()
-    {
-        // TODO revamp this camera system
-        Camera cam = Camera.main;
-
-        // Calculate screen size in world units
-        float height = 2f * cam.orthographicSize;
-        float width = height * cam.aspect;
-
-        // Update collider size
-        box.size = new Vector2(width, height);
-        box.offset = Vector2.zero;
-
-        // Follow camera position
-        transform.position = cam.transform.position;
-    }
-
     private void OnTriggerEnter2D(Collider2D enemyCollider)
     {
-        inRangeEnemies.Add(enemyCollider.gameObject);
+        EnemyController enemyController = enemyCollider.gameObject.GetComponent<EnemyController>();
+
+        if (enemyController == null)
+        {
+            return;
+        }
+
+        inRangeEnemies.Add(enemyController);
     }
 
     private void OnTriggerExit2D(Collider2D enemyCollider)
-    {
-        inRangeEnemies.Remove(enemyCollider.gameObject);
+    {        
+        EnemyController enemyController = enemyCollider.gameObject.    GetComponent<EnemyController>();
+
+        if (enemyController == null)
+        {
+            return;
+        }
+
+        inRangeEnemies.Remove(enemyController);
     }
 
     private void GetNearestEnemy()
@@ -54,9 +62,9 @@ public class PlayerAttackRange : MonoBehaviour
         float distanceToEnemy;
         float minDistance = placeHolderMinDistance;
 
-        foreach(GameObject enemy in inRangeEnemies)
+        foreach(EnemyController enemy in inRangeEnemies)
         {
-            distanceToEnemy = Vector2.Distance(this.gameObject.transform.position, enemy.transform.position);
+            distanceToEnemy = Vector2.Distance(this.gameObject.transform.position, enemy.gameObject.transform.position);
             //Debug.Log($"Distance to {enemy} = {distanceToEnemy}");
             
             if (distanceToEnemy < minDistance)
@@ -65,5 +73,10 @@ public class PlayerAttackRange : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
+    }
+
+    private void LoadBoxCollider()
+    {
+        attackRange = gameObject.GetComponent<BoxCollider2D>();
     }
 }

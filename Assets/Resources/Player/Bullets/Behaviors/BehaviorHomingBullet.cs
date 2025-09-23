@@ -11,7 +11,7 @@ public class BehaviorHomingBullet : IHomingBullet
         this.bullet = bullet;
     }
 
-    public void TargetNearestEnemy(GameObject nearestEnemy, PlayerControl playerControl)
+    public void TargetNearestEnemy(EnemyController nearestEnemy, PlayerControl playerControl)
     {        
         if (nearestEnemy == null)
         {
