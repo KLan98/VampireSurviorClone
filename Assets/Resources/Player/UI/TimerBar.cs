@@ -7,15 +7,27 @@ public class TimerBar : MonoBehaviour
 {
     private readonly CombatState combatState = new CombatState();
 
-    [Header("Optimization fields")]
+    [Header("Performance optimization fields")]
     private float updateTime = 1f; // TimerBar is to be updated every 1 second
     private float updateCounter; // up counter, value changed everyframe
 
     [Header("Timer bar fields")]
     [SerializeField] private float timeInSecond; // real time in second
+
+    // properties
+    public float MainTimer // Main timer in seconds
+    {
+        get
+        {
+            return timeInSecond;
+        }
+    }
+
+    // private fields
     private float startTime = 1200f; // level starts at 20 minutes = 1200 second
     private float sliderInitValue = 1f;
     private float interpolationValue;
+    private int currentMinute;
 
     [Header("Components")]
     [SerializeField] private Slider slider;
@@ -46,6 +58,12 @@ public class TimerBar : MonoBehaviour
 
             ScaleTimerSlider(); // scale the slider according to timeInSecond
 
+            // Check if 1 minute has passed then trigger choose reward state
+            if (OneMinuteHasPassed() == true)
+            {
+                EventManager.TriggerChooseRewardState();
+            }
+
             updateCounter = 0f;
         }
     }
@@ -60,12 +78,34 @@ public class TimerBar : MonoBehaviour
         // Debug.Log($"Slider value = {slider.value}");
     }
 
+    // timer only counts when game state = combat
     private void CheckCurrentGameState()
     {
         if (GameStateManager.Instance.GetCurrentGameState().GetType() != combatState.GetType())
         {
-            Debug.Log($"Timer will not count down, current game state = {GameStateManager.Instance.GetCurrentGameState()}");
+            // Debug.Log($"Timer will not count down, current game state = {GameStateManager.Instance.GetCurrentGameState()}");
             return;
+        }
+    }
+
+    private int GetMinuteIndex()
+    {
+        int minuteIndex = Mathf.CeilToInt(MainTimer / 60f); // current minute 
+
+        return minuteIndex;
+    }
+
+    private bool OneMinuteHasPassed()
+    {
+        if (MainTimer % 60 == 0 && MainTimer >= 0)
+        {
+            Debug.Log("One minute has passed");
+            return true;
+        }
+
+        else
+        {
+            return false;
         }
     }
 }

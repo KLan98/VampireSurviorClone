@@ -20,13 +20,13 @@ public class EnemyOffScreenPosition : IEnemyPositionProvider
         // Debug.Log($"world point top right {worldPointTopRight}");
 
         float minX = worldPointBottomLeft.x - spawnPositionOffset;
-        Debug.Log($"MinX {minX}");
+        // Debug.Log($"MinX {minX}");
         float maxX = worldPointTopRight.x + spawnPositionOffset;
-        Debug.Log($"MaxX {maxX}");
+        // Debug.Log($"MaxX {maxX}");
         float minY = worldPointBottomLeft.y - spawnPositionOffset;
-        Debug.Log($"MinY {minY}");
+        // Debug.Log($"MinY {minY}");
         float maxY = worldPointTopRight.y + spawnPositionOffset;
-        Debug.Log($"MaxY {maxY}");
+        // Debug.Log($"MaxY {maxY}");
 
         int side = Random.Range(0, 4); // 0 = Top, 1 = Bottom, 2 = Left, 3 = Right
         //Debug.Log($"Spawn side = {side}");

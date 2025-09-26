@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Summon enemies dynamically outside of the camera
+/// Summon enemies dynamically outside of the camera, based on MainTimer
 /// </summary>
 public class EnemySummon : MonoBehaviour
 {
@@ -11,8 +11,12 @@ public class EnemySummon : MonoBehaviour
     [SerializeField] private WaveSet waveSet;
     [SerializeField] private int maxAliveCap = 300; // max number of enemies alive spawned
 
-    private float gameTimeSeconds;
+    [Header("Components")]
+    [SerializeField] private TimerBar timerBar;
+
+    // fields
     private float periodicSpawnTimer;
+    private int maxGameTime = 20; // max game time in minute
 
     private IEnemyPoolProvider enemyPoolProvider;
     private IEnemyPositionProvider enemyPositionProvider;
@@ -25,7 +29,6 @@ public class EnemySummon : MonoBehaviour
 
     private void Update()
     {
-        gameTimeSeconds += Time.deltaTime;
         Wave currentWave = GetCurrentWave();
 
         if (currentWave == null)
@@ -69,12 +72,23 @@ public class EnemySummon : MonoBehaviour
             return null;
         }
 
-        int minuteIndex = Mathf.FloorToInt(gameTimeSeconds / 60f);
-        if (minuteIndex >= waveSet.Waves.Count)
+        int minuteIndex = Mathf.CeilToInt(timerBar.MainTimer / 60f); // current minute
+        // Debug.Log($"Minute index {minuteIndex}");
+
+        int waveIndex = maxGameTime - minuteIndex;
+
+        int waveCounts = waveSet.Waves.Count; // wave counts 
+
+        // if there are less waves than wave index then return the latest wave index
+        // wave count = 2 < wave index = 3
+        // only spawn wave index = wave count - 1
+        if (waveCounts <= waveIndex)
         {
-            minuteIndex = waveSet.Waves.Count - 1;
+            // Debug.Log("Spawn only the latest wave from now on");
+            waveIndex = waveCounts - 1;
         }
-        return waveSet.Waves[minuteIndex];
+
+        return waveSet.Waves[waveIndex];
     }
 
     private void SpawnUntilThreshold(Wave wave, int toSpawn)

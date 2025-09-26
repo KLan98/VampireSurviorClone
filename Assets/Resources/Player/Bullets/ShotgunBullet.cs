@@ -35,6 +35,7 @@ public class ShotgunBullet : BulletWithTimeout
 
         if (enemyController != null)
         {
+            // Debug.Log("ShotgunBullet found enemy controller");
             enemyController.stateMachine.ChangeState(enemyController.enemyKnockedBackState);
             BehaviorKnockbackBullet.KnockbackEnemy(collision.gameObject);
             TriggerReturnToPool();
@@ -42,7 +43,7 @@ public class ShotgunBullet : BulletWithTimeout
 
         else
         {
-            // Debug.Log("Enemy controller not found for ShotgunBullet");
+            Debug.Log("ShotgunBullet could not find Enemy controller");
             return;
         }
     }

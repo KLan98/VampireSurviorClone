@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     protected virtual void TriggerReturnToPool()
     {
-        Debug.Log($"{this} returned to pool");
+        // Debug.Log($"{this} returned to pool");
     }
 
     private void LoadBulletSprite()

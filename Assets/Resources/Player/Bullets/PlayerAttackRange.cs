@@ -20,7 +20,7 @@ public class PlayerAttackRange : MonoBehaviour
 
         Vector3 viewPortTopRight = new Vector3(1, 1, Camera.main.nearClipPlane);
         Vector3 worldPointTopRight = Camera.main.ViewportToWorldPoint(viewPortTopRight); // top-right corner of the 
-        Debug.Log($"world point top right {worldPointTopRight}");
+        // Debug.Log($"world point top right {worldPointTopRight}");
 
         playerAttackRangeHeight = 2 * Mathf.Abs(worldPointTopRight.y);
         playerAttackRangeWidth = 2 * Mathf.Abs(worldPointTopRight.x);

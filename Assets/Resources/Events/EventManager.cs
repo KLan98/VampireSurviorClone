@@ -10,10 +10,16 @@ public class EventManager : MonoBehaviour
     public static event Action<bool> OnWeaponSelected;
     public static event Action OnRefreshPauseMenuUI;
     public static event Action OnOrbitWeaponSelected;
+    public static event Action OnOneMinuteHasPassed;
 
     public static void CallAddItem()
     {
         OnInitWeaponChose?.Invoke();
+    }
+
+    public static void TriggerChooseRewardState()
+    {
+        OnOneMinuteHasPassed?.Invoke();
     }
 
     /// <summary>

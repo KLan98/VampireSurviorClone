@@ -26,6 +26,16 @@ public class GameStateManager : MonoBehaviour
         ChangeState(new ChooseWeaponState());
     }
 
+    private void OnEnable()
+    {
+        EventManager.OnOneMinuteHasPassed += ChangeToChooseRewardState;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnOneMinuteHasPassed -= ChangeToChooseRewardState;
+    }
+
     private void Update()
     {
         if (currentState != null)
@@ -53,5 +63,10 @@ public class GameStateManager : MonoBehaviour
     public GameState GetCurrentGameState()
     {
         return currentState;
+    }
+
+    private void ChangeToChooseRewardState()
+    {
+        ChangeState(new ChooseRewardState());
     }
 }

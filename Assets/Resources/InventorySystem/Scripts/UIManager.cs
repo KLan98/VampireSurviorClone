@@ -22,6 +22,12 @@ public class UIManager : MonoBehaviour
     [Header("Game over screen")]
     public GameObject gameOverScreen;
 
+    [Header("Choose reward")]
+    public GameObject chooseReward;
+
+    [Header("Upgrade select meu")]
+    public GameObject upgradeSelectionUI;
+
     private void Awake()
     {
         Instance = this;
