@@ -46,7 +46,7 @@ public class OrbitAttackInit
 			// Use the weapon's name as a unique ID
 			string weaponId = weapon.ItemName;
 
-			if (weapon.ProjectilePattern == ItemScriptableObject.BulletPattern.Orbit)
+			if (weapon.ProjectilePattern == IItem.BulletPattern.Orbit)
 			{
 				if (spawners.TryGetSpawner(weaponId, out IBulletSpawner spawner))
 				{

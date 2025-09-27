@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolOfWeapons : MonoBehaviour
+[System.Serializable]
+public class PoolOfWeapons
 {
     // these are the available weapons
-    // TODO overtime this pool expand
+    // TODO overtime this pool expand/reduce
     public SlotClass[] poolOfWeapons;
 }

@@ -28,7 +28,7 @@ public class WeaponInitState : GameState
             {
                 // Debug.Log(itemDB[i].GetItem().ItemName);
                 // if the item is newly added and its projectile pattern = orbit then trigger spawn orbit attack event
-                if (itemDB[i].GetItem().NewWeaponAdded && itemDB[i].GetItem().ProjectilePattern == ItemScriptableObject.BulletPattern.Orbit)
+                if (itemDB[i].GetItem().NewWeaponAdded && itemDB[i].GetItem().ProjectilePattern == IItem.BulletPattern.Orbit)
                 {
                     EventManager.TriggerSpawnOrbitAttack();
                     // Debug.Log("Event TriggerSpawnOrbitAttack executed");

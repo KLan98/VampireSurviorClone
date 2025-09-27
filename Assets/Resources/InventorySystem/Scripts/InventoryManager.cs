@@ -5,13 +5,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// In-game inventory manager, do not let other class call this component
+/// In-game inventory manager
 /// </summary>
 public class InventoryManager : MonoBehaviour
 {
+    [Header("Items")]
     [SerializeField] private SlotClass[] itemDB;
     public SlotClass[] ItemDB => itemDB;
+    
     [SerializeField] private SlotClass itemToAdd;
+    public SlotClass ItemToAdd
+    {
+        get
+        {
+            return itemToAdd;
+        }
+    }
     [SerializeField] private SlotClass itemToRemove;
 
     [Header("Game objects")]
@@ -22,6 +31,7 @@ public class InventoryManager : MonoBehaviour
     [Header("Components")]
     [SerializeField] private WeaponSelection weaponSelection;
     [SerializeField] private UIManager UIManager;
+    private InventoryLogic inventoryLogic;
 
     private void Awake()
     {
@@ -35,45 +45,22 @@ public class InventoryManager : MonoBehaviour
         InitItemDB();
     }
 
+    private void Start()
+    {
+        inventoryLogic = new InventoryLogic(itemDB);
+    }
+
     /// <summary>
     /// Add item to empty itemDB slot
     /// </summary>
-    private void AddItem()
+    public void AddItem(SlotClass itemToAdd)
     {
-        //Debug.Log("Call add item");
-
-        if (itemDB == null)
-        {
-            Debug.LogWarning("itemDB is null");
-        }
-
-        for (int i = 0; i < itemDB.Length; i++)
-        {
-            if (itemDB[i] == null)
-            {
-                itemDB[i] = itemToAdd;
-                itemDB[i].GetItem().NewWeaponAdded = true;
-                Debug.Log($"Added item {itemToAdd.GetItem().ItemName} to index {i}");
-                Debug.Log($"{itemDB[i].GetItem().ItemName} is a new item = {itemDB[i].GetItem().NewWeaponAdded}");
-
-                return;
-            }
-
-            else if (itemDB[i] != null)
-            {
-                Debug.LogWarning($"ItemDB at index {i} is not null, itemDB[i] = {itemDB[i]}");
-            }
-
-            else
-            {
-                Debug.LogWarning($"Exception, value of itemDB[i] is not defined = {itemDB[i]}");
-            }
-        }
+        inventoryLogic.AddItem(itemToAdd);
     }
 
     private void OnEnable()
     {
-        EventManager.OnInitWeaponChose += AddItem;
+        EventManager.OnCallAddItem += AddItem;
         EventManager.OnAssignItemToAdd += AssignItemToAdd;
         //EventManager.OnWeaponSelectionUIActive += LoadWeaponSelection;
         EventManager.OnRefreshPauseMenuUI += ArrangeItemToSlot;
@@ -81,7 +68,7 @@ public class InventoryManager : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.OnInitWeaponChose -= AddItem;
+        EventManager.OnCallAddItem -= AddItem;
         EventManager.OnAssignItemToAdd -= AssignItemToAdd;
         //EventManager.OnWeaponSelectionUIActive -= LoadWeaponSelection;
         EventManager.OnRefreshPauseMenuUI -= ArrangeItemToSlot;

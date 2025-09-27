@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    public static event Action OnInitWeaponChose;
+    public static event Action<SlotClass> OnCallAddItem;
     public static event Action<int> OnAssignItemToAdd;
     public static event Action<bool> OnWeaponSelected;
     public static event Action OnRefreshPauseMenuUI;
     public static event Action OnOrbitWeaponSelected;
     public static event Action OnOneMinuteHasPassed;
 
-    public static void CallAddItem()
+    public static void CallAddItem(SlotClass itemToAdd)
     {
-        OnInitWeaponChose?.Invoke();
+        OnCallAddItem?.Invoke(itemToAdd);
     }
 
     public static void TriggerChooseRewardState()

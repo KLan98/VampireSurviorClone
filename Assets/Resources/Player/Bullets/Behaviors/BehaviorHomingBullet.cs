@@ -26,6 +26,6 @@ public class BehaviorHomingBullet : IHomingBullet
         Vector2 bulletDirection = (nearestEnemy.transform.position - playerControl.transform.position).normalized;
         bullet.gameObject.transform.up = bulletDirection;
 
-        Debug.Log($"{bullet} targets nearest enemy {nearestEnemy}");
+        // Debug.Log($"{bullet} targets nearest enemy {nearestEnemy}");
     }
 }

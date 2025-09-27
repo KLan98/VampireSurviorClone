@@ -52,7 +52,7 @@ public class AttackScheduler
 			// Use the weapon's name as a unique ID
 			string weaponId = weapon.ItemName;
 
-			if (weapon.ProjectilePattern == ItemScriptableObject.BulletPattern.Straight)
+			if (weapon.ProjectilePattern == IItem.BulletPattern.Straight)
 			{
 				// If this is the first time we see this weapon, start its cooldown timer at 0
 				if (!cooldownElapsed.ContainsKey(weaponId))

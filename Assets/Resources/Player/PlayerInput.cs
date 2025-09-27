@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     private PlayerInputActions playerInputAction;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject chooseWeaponMenu;
+    [SerializeField] private InventoryManager inventoryManager;
     private WeaponSelection weaponSelectionComponent;
 
     private bool pauseMenuActive;
@@ -73,7 +74,7 @@ public class PlayerInput : MonoBehaviour
 
                     EventManager.AssignItemToAdd(selectionIndex);
 
-                    EventManager.CallAddItem();
+                    EventManager.CallAddItem(inventoryManager.ItemToAdd);
 
                     EventManager.RefreshPauseMenuUI();
 

@@ -3,24 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public abstract class ItemScriptableObject : ScriptableObject
+public class ItemScriptableObject : ScriptableObject, IItem
 {
     // fields
     [SerializeField] private string itemName;
-    public string ItemName => itemName;
+    public string ItemName 
+    {
+        get
+        {
+            return itemName;
+        }
+    }
 
     [SerializeField] private Sprite itemSprite;
-    public Sprite ItemSprite => itemSprite;
+    public Sprite ItemSprite
+    {
+        get
+        {
+            return itemSprite;
+        }
+    }
 
-    [HideIf("ProjectilePattern", BulletPattern.Orbit)]
+    [HideIf("ProjectilePattern", IItem.BulletPattern.Orbit)]
     [SerializeField] private float coolDownTime;
-    public float CoolDownTime => coolDownTime;
+    public float CoolDownTime
+    {
+        get
+        {
+            return coolDownTime;
+        }
+    }
 
     [SerializeField] private int initDamage;
-    public int InitDamage => initDamage;
+    public int InitDamage
+    {
+        get
+        {
+            return initDamage;
+        }
+    }
 
     [SerializeField] private int level;
-    public int Level => level;
+    public int Level
+    {
+        get
+        {
+            return level;
+        }
+    }
 
     [SerializeField] private int numberOfProjectiles;
     public int NumberOfProjectiles
@@ -49,7 +79,7 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
-    [ShowIf("ProjectilePattern", BulletPattern.Orbit)]
+    [ShowIf("ProjectilePattern", IItem.BulletPattern.Orbit)]
     [SerializeField] private float projectileRadius;
     public float ProjectileRadius
     {
@@ -73,14 +103,19 @@ public abstract class ItemScriptableObject : ScriptableObject
         }
     }
 
-    public BulletPattern ProjectilePattern;
+    [SerializeField] private IItem.BulletPattern projectilePattern;
 
-    public enum BulletPattern
+    public IItem.BulletPattern ProjectilePattern
     {
-        Straight,
-        Orbit,
-        Boomerang,
-        Aura
+        get
+        {
+            return projectilePattern;
+        }
+
+        set
+        {
+            projectilePattern = value;
+        }
     }
 }
 
